@@ -8,6 +8,7 @@
         :root {
             --bg-color: #f2edeb;
             --text-color: #4a4a4a;
+            --accent-presentation: #7e8c85; /* Vert sauge doux pour la présentation */
             --accent-maison: #545454;
             --accent-beaute: #e5b3b3;
             --accent-bebe: #dabeb7;
@@ -43,14 +44,16 @@
 
         .nav-buttons {
             display: flex;
-            gap: 15px;
+            gap: 10px;
             margin-bottom: 30px;
             width: 100%;
             max-width: 500px;
+            flex-wrap: wrap;
         }
 
         .nav-btn {
             flex: 1;
+            min-width: 100px;
             padding: 12px;
             border: none;
             border-radius: 15px;
@@ -65,6 +68,7 @@
             transform: scale(0.98);
         }
 
+        #btn-presentation { background-color: var(--accent-presentation); }
         #btn-maison { background-color: var(--accent-maison); }
         #btn-beaute { background-color: var(--accent-beaute); }
         #btn-bebe { background-color: var(--accent-bebe); }
@@ -102,9 +106,9 @@
             border-top: 1px dashed var(--accent-maison);
         }
         
-        #beaute-section .recipe-divider {
-            border-top-color: var(--accent-beaute);
-        }
+        #presentation-section .recipe-divider { border-top-color: var(--accent-presentation); }
+        #beaute-section .recipe-divider { border-top-color: var(--accent-beaute); }
+        #bebe-section .recipe-divider { border-top-color: var(--accent-bebe); }
 
         .calculator {
             background: #f7f9f8;
@@ -146,6 +150,7 @@
             border-left: 4px solid #e0e0e0;
         }
 
+        #presentation-section .ingredients-box { border-left-color: var(--accent-presentation); }
         #maison-section .ingredients-box { border-left-color: var(--accent-maison); }
         #beaute-section .ingredients-box { border-left-color: var(--accent-beaute); }
         #bebe-section .ingredients-box { border-left-color: var(--accent-bebe); }
@@ -157,6 +162,19 @@
             padding: 10px;
             border-radius: 8px;
             margin-top: 15px;
+        }
+
+        /* Presentation Style addition */
+        .presentation-intro {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .universe-list {
+            padding-left: 20px;
+            line-height: 1.6;
+        }
+        .universe-list li {
+            margin-bottom: 12px;
         }
 
         /* --- STYLES DES SOUS-SECTIONS --- */
@@ -208,9 +226,27 @@
     </header>
 
     <div class="nav-buttons">
+        <button class="nav-btn" id="btn-presentation" onclick="showSection('presentation')">Présentation</button>
         <button class="nav-btn" id="btn-maison" onclick="showSection('maison')">Ménage</button>
         <button class="nav-btn" id="btn-beaute" onclick="showSection('beaute')">Beauté</button>
         <button class="nav-btn" id="btn-bebe" onclick="showSection('bebe')">Bébé</button>
+    </div>
+
+    <div id="presentation-section" class="section active">
+        <h2>🌿 Bienvenue dans l’univers Routine au naturel</h2>
+        <p class="presentation-intro">Une nouvelle façon de vivre mieux, tout simplement. 🤍</p>
+        <p class="presentation-intro">Vous aspirez à un quotidien plus sain, plus respectueux de votre santé et de la planète, mais vous ne savez pas par où commencer ? Ne bougez plus, vous êtes au bon endroit ! Sur cet outil, pas de prise de tête ni d’injonctions. Je partage avec vous des astuces, des conseils pratiques et des recettes simples, accessibles et rapides à intégrer dans votre routine.</p>
+        
+        <div class="ingredients-box">
+            <h4>🎨 Nos 3 univers au quotidien :</h4>
+            <ul class="universe-list">
+                <li><strong>🧼 Ménage au naturel :</strong> Des recettes de produits ménagers faits maison et des clés pour une organisation optimale, sans charge mentale.</li>
+                <li><strong>🌸 Beauté au naturel :</strong> Prendre soin de soi et rayonner sans dépenser des millions, grâce à des ingrédients simples que l'on a tous dans nos placards.</li>
+                <li><strong>👶 Bébé au naturel :</strong> Des conseils bien-être et des recettes ultra-saines pour chouchouter la peau délicate de vos tout-petits.</li>
+            </ul>
+        </div>
+        
+        <p class="presentation-intro">Formons ensemble une communauté qui avance pas à pas vers un quotidien plus doux et plus vrai. 🫶 Cliquez sur les boutons ci-dessus pour explorer les différentes recettes interactives !</p>
     </div>
 
     <div id="maison-section" class="section">
@@ -380,64 +416,3 @@
                     <li>4 c. à soupe d'acide citrique</li>
                     <li>3 c. à soupe de percarbonate de soude</li>
                     <li>1 c. à soupe de vinaigre d'alcool</li>
-                </ul>
-            </div>
-            <h4>Réalisation :</h4>
-            <ul class="step-list">
-                <li class="step-item"><input type="checkbox"> <span>Versez dans un saladier toutes les poudres (cristaux de soude, acide citrique et percarbonate).</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Ajoutez la cuillère de vinaigre d'alcool et mélangez rapidement à l'aide d'une cuillère.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Répartir le mélange dans les bacs à glaçons.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Laissez sécher à l'air libre pendant au moins 4h ou toute une nuit c'est l'idéal!</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Démoulez les tablettes et les stocker dans une boîte.</span></li>
-            </ul>
-            <div class="tip">
-                <strong>Utilisation :</strong> Utilisez une tablette directement dans le compartiment de votre lave-vaisselle.
-                <p><strong>Quantité :</strong> Pour environ 25 tablettes / Un mois d'utilisation</p>
-            </div>
-
-            <hr class="recipe-divider">
-
-            <h4>✨ Comment entretenir efficacement son lave-vaisselle ?</h4>
-            
-            <h5>Etape 1 : Nettoyer le dévidoir</h5>
-            <div class="ingredients-box">
-                <strong>Fréquence :</strong> 1 fois par semaine ou une fois toutes les deux semaines
-            </div>
-            <h5>Instructions nettoyage dévidoir :</h5>
-            <ul class="step-list">
-                <li class="step-item"><input type="checkbox"> <span>Retirez le dévidoir du lave-vaisselle.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Rincez les résidus de nourriture.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Saupoudrez de bicarbonate de soude.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Vaporisez ou versez du vinaigre blanc. (Une mousse effervescente se forme)</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Laissez agir quelques secondes.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Frottez avec une brosse à dents.</span></li>
-            </ul>
-
-            <h5 style="margin-top: 20px;">Etape 2 : Nettoyer le lave-vaisselle</h5>
-            <div class="ingredients-box">
-                <strong>Fréquence :</strong> 1 fois par mois
-            </div>
-            <h5>Instructions nettoyage lave-vaisselle :</h5>
-            <ul class="step-list">
-                <li class="step-item"><input type="checkbox"> <span>Nettoyer l'emplacement du dévidoir.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Saupoudrez de bicarbonate l'emplacement du dévidoir puis de vinaigre blanc et frottez avec une brosse.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Vérifiez et décrasser les joints si nécessaire en saupoudrant de bicarbonate de soude et en vaporisant du vinaigre.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Versez du vinaigre blanc ménager dans un bol.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Placer le bol dans le lave-vaisselle.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Remettre le dévidoir à sa place.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Vérifiez et ajoutez si nécessaire du sel régénérant.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Lancez un cycle de rinçage.</span></li>
-            </ul>
-        </div>
-
-        <div id="toilettes-subsection" class="sub-section">
-            <h3>🚽 Vos Recettes WC & Salle de bains</h3>
-            
-            <h4>🚽 Pastille WC</h4>
-            <div class="ingredients-box">
-                <h4>Matériel & Ingrédients :</h4>
-                <ul>
-                    <li>1 bocal</li>
-                    <li>1 bac à glaçons</li>
-                    <li>1 c. à soupe d'acide citrique</li>
-                    <li>3 c. à soupe de bicarbonate de soude</li>
