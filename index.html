@@ -391,6 +391,7 @@
 
                 <hr class="recipe-divider">
 
+                <!-- Tablettes Lave-Vaisselle -->
                 <h5>🍽️ Tablettes Lave-Vaisselle</h5>
                 <div class="ingredients-box">
                     <h4>Matériel & Ingrédients :</h4>
@@ -437,6 +438,7 @@
 
                 <hr class="recipe-divider">
 
+                <!-- Adoucissant -->
                 <h5>🌿 Adoucissant</h5>
                 <div class="ingredients-box">
                     <h4>Matériel & Ingrédients :</h4>
@@ -502,6 +504,58 @@
                     <li class="step-item"><input type="checkbox"> <span>Mélangez le tout.</span></li>
                     <li class="step-item"><input type="checkbox"> <span>Posez ce récipient au fond de la poubelle.</span></li>
                 </ul>
+
+                <hr class="recipe-divider">
+
+                <!-- AJOUT DE LA CRÈME À RÉCURER -->
+                <h5>🧽 Crème à récurer</h5>
+                <div class="ingredients-box">
+                    <h4>Ingrédients & Matériel :</h4>
+                    <ul>
+                        <li>1 bocal en verre ou 1 saladier</li>
+                        <li>4 cuillères à soupe de bicarbonate de soude</li>
+                        <li>4 cuillères à soupe de savon noir mou (aux graines de lin)</li>
+                    </ul>
+                </div>
+                <h5>Préparation :</h5>
+                <ul class="step-list">
+                    <li class="step-item"><input type="checkbox"> <span>Versez le bicarbonate dans le bocal s’il est large, ou sinon dans un saladier.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Ajoutez le savon noir mou.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Mélangez les ingrédients en incorporant le bicarbonate au savon noir.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Transvasez dans le pot final si vous avez travaillé votre crème dans un saladier. Votre crème est prête !</span></li>
+                </ul>
+                <div class="tip">
+                    <strong>Conseil :</strong> Vous pouvez l'utiliser sur une brosse ou une éponge selon vos besoins. Pensez à mélanger un peu avant chaque utilisation.
+                </div>
+            </div>
+
+            <hr class="recipe-divider" style="border-top-style: solid; border-top-width: 2px;">
+
+            <!-- BLOC : WC -->
+            <div class="recipe-group">
+                <h4>🚽 Catégorie : WC</h4>
+                
+                <h5>Galets WC</h5>
+                <div class="ingredients-box">
+                    <h4>Ingrédients & Matériel :</h4>
+                    <ul>
+                        <li>1 bocal</li>
+                        <li>1 bac à glaçons</li>
+                        <li>1 cuillère à soupe d'acide citrique</li>
+                        <li>3 cuillères à soupe de bicarbonate de soude</li>
+                        <li>Eau</li>
+                    </ul>
+                </div>
+                <h5>Préparation :</h5>
+                <ul class="step-list">
+                    <li class="step-item"><input type="checkbox"> <span>Dans un saladier, versez les poudres (acide citrique et bicarbonate de soude).</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Versez une cuillère à soupe d’eau en mélangeant très rapidement pour limiter la réaction effervescente.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Une fois le mélange homogène, tassez-le fermement dans les compartiments d'un bac à glaçons.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Laissez sécher à l’air libre pendant environ 8 heures, puis démoulez et conservez dans votre bocal.</span></li>
+                </ul>
+                <div class="tip">
+                    <strong>Conseil :</strong> Préparez vos pastilles la nuit pour un séchage optimal. Elles seront prêtes à être utilisées dès le lendemain matin.
+                </div>
             </div>
         </div>
     </div>
@@ -556,7 +610,7 @@
                 <div class="ingredients-box">
                     <h4>Ingrédients :</h4>
                     <ul>
-                        <li>1 litre d'eau froide</li>
+                        <li>1 livre d'eau froide</li>
                         <li>1 à 2 c. à soupe de vinaigre de cidre</li>
                     </ul>
                 </div>
@@ -624,25 +678,29 @@
         }
 
         function showSubSection(subSectionId, event) {
-            const container = event.target.closest('.section');
-            const subSections = container.querySelectorAll('.sub-section');
+            // Récupère la section parente active pour ne filtrer que ses propres sous-sections
+            const activeSection = event.target.closest('.section');
+            const subSections = activeSection.querySelectorAll('.sub-section');
             subSections.forEach(sub => sub.classList.remove('active'));
 
-            const subButtons = container.querySelectorAll('.sub-nav-btn');
-            subButtons.forEach(btn => btn.classList.remove('active'));
+            const targetSubSection = activeSection.querySelector('#' + subSectionId + '-subsection');
+            if (targetSubSection) {
+                targetSubSection.classList.add('active');
+            }
 
-            document.getElementById(subSectionId + '-subsection').classList.add('active');
+            // Gère l'état actif des boutons de navigation interne
+            const subNavButtons = activeSection.querySelectorAll('.sub-nav-btn');
+            subNavButtons.forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
         }
 
         function updateLessive() {
-            const qty = parseInt(document.getElementById('lessive-qty').value);
-            
-            document.getElementById('ing-savon').innerText = qty === 1 ? "2.5" : "5";
-            document.getElementById('ing-bicar').innerText = qty === 1 ? "2" : "4";
-            document.getElementById('ing-cristaux').innerText = qty === 1 ? "1" : "2";
-            document.getElementById('ing-eau-chaude').innerText = qty === 1 ? "0.5" : "1";
-            document.getElementById('ing-eau-amb').innerText = qty === 1 ? "0.5" : "1";
+            const qty = document.getElementById('lessive-qty').value;
+            document.getElementById('ing-savon').innerText = qty == "1" ? "2.5" : "5";
+            document.getElementById('ing-bicar').innerText = qty == "1" ? "2" : "4";
+            document.getElementById('ing-cristaux').innerText = qty == "1" ? "1" : "2";
+            document.getElementById('ing-eau-chaude').innerText = qty == "1" ? "0.5" : "1";
+            document.getElementById('ing-eau-amb').innerText = qty == "1" ? "0.5" : "1";
         }
     </script>
 </body>
