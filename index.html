@@ -84,7 +84,7 @@
             box-sizing: border-box;
         }
 
-        .active {
+        .section.active {
             display: block;
         }
 
@@ -232,6 +232,7 @@
         <button class="nav-btn" id="btn-bebe" onclick="showSection('bebe')">Bébé</button>
     </div>
 
+    <!-- SECTION PRÉSENTATION -->
     <div id="presentation-section" class="section active">
         <h2>🌿 Bienvenue dans l’univers Routine au naturel</h2>
         <p class="presentation-intro">Une nouvelle façon de vivre mieux, tout simplement. 🤍</p>
@@ -249,6 +250,7 @@
         <p class="presentation-intro">Formons ensemble une communauté qui avance pas à pas vers un quotidien plus doux et plus vrai. 🫶 Cliquez sur les boutons ci-dessus pour explorer les différentes recettes interactives !</p>
     </div>
 
+    <!-- SECTION MÉNAGE -->
     <div id="maison-section" class="section">
         <h2>✨ Ménage au naturel</h2>
         
@@ -257,12 +259,11 @@
             <button class="sub-nav-btn btn-maison-style" onclick="showSubSection('linge', event)">🧺 Linge</button>
             <button class="sub-nav-btn btn-maison-style" onclick="showSubSection('multiusages', event)">✨ Multi-usages</button>
             <button class="sub-nav-btn btn-maison-style" onclick="showSubSection('vaisselle', event)">🍽️ Vaisselle</button>
-            <button class="sub-nav-btn btn-maison-style" onclick="showSubSection('toilettes', event)">🚽 WC & Bain</button>
         </div>
 
+        <!-- Sous-section : Produits de base -->
         <div id="base-subsection" class="sub-section active">
             <h3>📦 Vos Produits de Base</h3>
-            
             <div class="ingredients-box">
                 <h4>Ingrédients indispensables :</h4>
                 <ul class="step-list">
@@ -273,17 +274,15 @@
                     <li class="step-item"><input type="checkbox"> <span>Acide citrique</span></li>
                 </ul>
             </div>
-            
             <p>💡 <i>Pas besoin de plus, surtout si vous débutez.</i></p>
-
             <div class="tip">
                 ⏳ Un guide complet pour vous aider à mettre en place une routine ménage simple et rapide arrive bientôt.
             </div>
         </div>
 
+        <!-- Sous-section : Linge -->
         <div id="linge-subsection" class="sub-section">
             <h3>🧺 Vos Recettes Linge</h3>
-            
             <h4>Lessive Maison</h4>
             <div class="calculator">
                 <label for="lessive-qty">Quantité souhaitée :</label>
@@ -333,9 +332,9 @@
             </div>
         </div>
 
+        <!-- Sous-section : Multi-usages -->
         <div id="multiusages-subsection" class="sub-section">
             <h3>✨ Vos Recettes Multi-usages</h3>
-            
             <h4>🪟 Nettoyant surface vitrée</h4>
             <div class="ingredients-box">
                 <h4>Matériel & Ingrédients :</h4>
@@ -364,7 +363,7 @@
                 <ul>
                     <li>1 coupelle ou 1 récipient</li>
                     <li>2 c. à soupe de bicarbonate de soude</li>
-                    <li>15 gouttes d'huile essentielle d'arbre à thé (ou 7 gouttes de citron + 8 gouttes d'arbre à thé)</li>
+                    <li>15 gouttes d'huile essentielle d'arbre à thé</li>
                 </ul>
             </div>
             <h4>Préparation :</h4>
@@ -374,19 +373,16 @@
                 <li class="step-item"><input type="checkbox"> <span>Mélangez le tout.</span></li>
                 <li class="step-item"><input type="checkbox"> <span>Posez ce récipient au fond de la poubelle.</span></li>
             </ul>
-            <div class="tip">
-                <strong>Conseil :</strong> Refaire la recette environ une fois par semaine ou toutes les deux semaines.
-            </div>
         </div>
 
+        <!-- Sous-section : Vaisselle -->
         <div id="vaisselle-subsection" class="sub-section">
             <h3>🍽️ Vos Recettes Vaisselle</h3>
-            
             <h4>🍽️ Poudre Lave-Vaisselle</h4>
             <div class="ingredients-box">
                 <h4>Matériel & Ingrédients :</h4>
                 <ul>
-                    <li>1 bocal hermétique en verre (de préférence)</li>
+                    <li>1 bocal hermétique en verre</li>
                     <li>4 c. à soupe de cristaux de soude</li>
                     <li>4 c. à soupe d'acide citrique</li>
                     <li>3 c. à soupe de percarbonate de soude</li>
@@ -394,25 +390,77 @@
             </div>
             <h4>Réalisation :</h4>
             <ul class="step-list">
-                <li class="step-item"><input type="checkbox"> <span>Versez directement dans le bocal toutes les poudres (cristaux de soude, acide citrique et percarbonate).</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Mélangez à l'aide d'une cuillère.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Fermez le bocal et stocker à l'abri de l'humidité.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>C'est déjà prêt !</span></li>
+                <li class="step-item"><input type="checkbox"> <span>Versez les poudres dans le bocal, mélangez et fermez.</span></li>
             </ul>
-            <div class="tip">
-                <strong>Utilisation :</strong> Utilisez l'équivalent de 2 à 3 cuillères à soupe de poudre par lavage directement dans le bac de votre lave-vaisselle.<br><br>
-                <strong>Conseil pratique :</strong> Le bocal doit être hermétique pour éviter à l’humidité de pénétrer. Sinon la poudre risque de durcier. Le lieu de stockage est aussi important, je vous déconseille fortement de le déposer dans le placard sous l’évier surtout si votre branchement lave-vaisselle se trouve à ce niveau. Pour ma part, je laisse le bocal sur le plan de travail.
-            </div>
 
             <hr class="recipe-divider">
 
-            <h4>🍽️ Tablette Lave-Vaisselle</h4>
+            <h4>🍽️ Tablettes Lave-Vaisselle</h4>
             <div class="ingredients-box">
                 <h4>Matériel & Ingrédients :</h4>
                 <ul>
-                    <li>1 boîte de stockage</li>
-                    <li>1 bac à glaçons</li>
                     <li>4 c. à soupe de cristaux de soude</li>
                     <li>4 c. à soupe d'acide citrique</li>
                     <li>3 c. à soupe de percarbonate de soude</li>
                     <li>1 c. à soupe de vinaigre d'alcool</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- AUTRES SECTIONS (Vides pour l'instant, prêtes à être remplies) -->
+    <div id="beaute-section" class="section">
+        <h2>🌸 Beauté au naturel</h2>
+        <p>Les recettes de cosmétiques maison arriveront bientôt !</p>
+    </div>
+
+    <div id="bebe-section" class="section">
+        <h2>👶 Bébé au naturel</h2>
+        <p>Les astuces pour chouchouter les tout-petits arriveront bientôt !</p>
+    </div>
+
+    <!-- --- CODE JAVASCRIPT REQUIS POUR LE FONCTIONNEMENT --- -->
+    <script>
+        // Fonction pour changer de section principale (Présentation, Ménage, Beauté, Bébé)
+        function showSection(sectionId) {
+            // Masquer toutes les sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(sec => sec.classList.remove('active'));
+
+            // Afficher la section demandée
+            const targetSection = document.getElementById(sectionId + '-section');
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+        }
+
+        // Fonction pour changer de sous-section (Produits de base, Linge, etc.)
+        function showSubSection(subSectionId, event) {
+            // Masquer toutes les sous-sections du bloc parent
+            const container = event.target.closest('.section');
+            const subSections = container.querySelectorAll('.sub-section');
+            subSections.forEach(sub => sub.classList.remove('active'));
+
+            // Désactiver l'état actif sur les boutons de cette sous-navigation
+            const subButtons = container.querySelectorAll('.sub-nav-btn');
+            subButtons.forEach(btn => btn.classList.remove('active'));
+
+            // Activer la sous-section et le bouton cliqué
+            document.getElementById(subSectionId + '-subsection').classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Calculateur dynamique pour la quantité de Lessive Maison
+        function updateLessive() {
+            const qty = parseInt(document.getElementById('lessive-qty').value);
+            
+            // Ajustement des doses en fonction de la quantité sélectionnée (1L ou 2L)
+            document.getElementById('ing-savon').innerText = qty === 1 ? "2.5" : "5";
+            document.getElementById('ing-bicar').innerText = qty === 1 ? "2" : "4";
+            document.getElementById('ing-cristaux').innerText = qty === 1 ? "1" : "2";
+            document.getElementById('ing-eau-chaude').innerText = qty === 1 ? "0.5" : "1";
+            document.getElementById('ing-eau-amb').innerText = qty === 1 ? "0.5" : "1";
+        }
+    </script>
+</body>
+</html>
