@@ -256,9 +256,8 @@
         
         <div class="sub-nav">
             <button class="sub-nav-btn active btn-maison-style" onclick="showSubSection('base', event)">📦 Produits de base</button>
-            <button class="sub-nav-btn btn-maison-style" onclick="showSubSection('linge', event)">🧺 Linge</button>
-            <button class="sub-nav-btn btn-maison-style" onclick="showSubSection('multiusages', event)">✨ Multi-usages</button>
-            <button class="sub-nav-btn btn-maison-style" onclick="showSubSection('vaisselle', event)">🍽️ Vaisselle</button>
+            <button class="sub-nav-btn btn-maison-style" onclick="showSubSection('conseils', event)">💡 Conseils</button>
+            <button class="sub-nav-btn btn-maison-style" onclick="showSubSection('recettes', event)">🧪 Nos Recettes</button>
         </div>
 
         <!-- Sous-section : Produits de base -->
@@ -280,135 +279,183 @@
             </div>
         </div>
 
-        <!-- Sous-section : Linge -->
-        <div id="linge-subsection" class="sub-section">
-            <h3>🧺 Vos Recettes Linge</h3>
-            <h4>Lessive Maison</h4>
-            <div class="calculator">
-                <label for="lessive-qty">Quantité souhaitée :</label>
-                <select id="lessive-qty" onchange="updateLessive()">
-                    <option value="1">1 Litre</option>
-                    <option value="2" selected>2 Litres</option>
-                </select>
-            </div>
+        <!-- Sous-section : Conseils -->
+        <div id="conseils-subsection" class="sub-section">
+            <h3>💡 Nos Conseils pour un Ménage Serein</h3>
             <div class="ingredients-box">
-                <h4>Ingrédients :</h4>
-                <ul>
-                    <li><span id="ing-savon">5</span> c. à soupe de savon noir mou</li>
-                    <li><span id="ing-bicar">4</span> c. à soupe de bicarbonate de soude</li>
-                    <li><span id="ing-cristaux">2</span> c. à soupe de cristaux de soude</li>
-                    <li><span id="ing-eau-chaude">1</span> L d'eau chaude</li>
-                    <li><span id="ing-eau-amb">1</span> L d'eau à température ambiante</li>
+                <h4>Les bonnes habitudes :</h4>
+                <ul class="step-list">
+                    <li class="step-item"><input type="checkbox"> <span><strong>Aérer quotidiennement :</strong> 10 minutes matin et soir suffisent pour renouveler l'air.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span><strong>Ne pas tout faire le même jour :</strong> Diviser les tâches sur la semaine pour réduire la charge mentale.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span><strong>Nettoyer au fur et à mesure :</strong> Passer un coup d'éponge après chaque utilisation évite l'encrassement.</span></li>
                 </ul>
             </div>
-            <h4>Préparation pas-à-pas :</h4>
-            <ul class="step-list">
-                <li class="step-item"><input type="checkbox"> <span>Faire fondre le savon noir dans l'eau chaude.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Une fois le mélange homogène, ajoutez le bicarbonate et les cristaux de soude, puis mélangez.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Ajoutez l'eau à température ambiante et mélangez à nouveau.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Laissez refroidir, votre lessive est prête à être versée dans votre bidon !</span></li>
-            </ul>
-
-            <hr class="recipe-divider">
-
-            <h4>🌿 Adoucissant</h4>
-            <div class="ingredients-box">
-                <h4>Matériel & Ingrédients :</h4>
-                <ul>
-                    <li>1 flacon d'1 litre</li>
-                    <li>500 ml d'eau déminéralisée</li>
-                    <li>500 ml de vinaigre d'alcool</li>
-                    <li>15 gouttes d'huile essentielle de votre choix (ex: lavande fine)</li>
-                </ul>
-            </div>
-            <h4>Préparation :</h4>
-            <ul class="step-list">
-                <li class="step-item"><input type="checkbox"> <span>Versez directement dans le flacon l'eau déminéralisée et le vinaigre d'alcool.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Ajoutez l'huile essentielle.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Secouez légèrement. C'est prêt !</span></li>
-            </ul>
             <div class="tip">
-                <strong>Conseil :</strong> Utilisez l'équivalent de 3 cuillères à soupe par lavage.
+                <strong>Rappel sécurité :</strong> Ne mélangez jamais le vinaigre blanc et le bicarbonate dans un contenant fermé (réaction effervescente), et ne mélangez jamais le vinaigre avec de l'eau de Javel !
             </div>
         </div>
 
-        <!-- Sous-section : Multi-usages -->
-        <div id="multiusages-subsection" class="sub-section">
-            <h3>✨ Vos Recettes Multi-usages</h3>
-            <h4>🪟 Nettoyant surface vitrée</h4>
-            <div class="ingredients-box">
-                <h4>Matériel & Ingrédients :</h4>
-                <ul>
-                    <li>1 flacon spray</li>
-                    <li>500 ml d'eau déminéralisée</li>
-                    <li>100 ml d'alcool ménager</li>
-                    <li>200 ml de vinaigre d'alcool</li>
+        <!-- Sous-section Unique : Recettes -->
+        <div id="recettes-subsection" class="sub-section">
+            <h3>🧪 Vos Recettes Maison</h3>
+            
+            <!-- BLOC : VAISSELLE -->
+            <div class="recipe-group">
+                <h4>🍽️ Catégorie : Vaisselle</h4>
+                
+                <h5>🧼 Liquide Vaisselle Main Express</h5>
+                <div class="ingredients-box">
+                    <h4>Ingrédients :</h4>
+                    <ul>
+                        <li>500 ml d'eau chaude</li>
+                        <li>2 c. à soupe de savon noir mou (ou savon de Marseille liquide)</li>
+                        <li>1 c. à soupe de bicarbonate de soude</li>
+                        <li>1 c. à soupe de cristaux de soude (pour dégraisser fort)</li>
+                    </ul>
+                </div>
+                <h5>Préparation :</h5>
+                <ul class="step-list">
+                    <li class="step-item"><input type="checkbox"> <span>Mélanger le savon noir dans l'eau chaude jusqu'à dissolution complète.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Ajouter délicatement le bicarbonate et les cristaux de soude (attention, ça peut mousser un peu).</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Verser dans un ancien flacon de liquide vaisselle propre. Secouer avant usage.</span></li>
+                </ul>
+
+                <hr class="recipe-divider">
+
+                <h5>🍽️ Poudre Lave-Vaisselle</h5>
+                <div class="ingredients-box">
+                    <h4>Matériel & Ingrédients :</h4>
+                    <ul>
+                        <li>1 bocal hermétique en verre</li>
+                        <li>4 c. à soupe de cristaux de soude</li>
+                        <li>4 c. à soupe d'acide citrique</li>
+                        <li>3 c. à soupe de percarbonate de soude</li>
+                    </ul>
+                </div>
+                <h5>Réalisation :</h5>
+                <ul class="step-list">
+                    <li class="step-item"><input type="checkbox"> <span>Versez les poudres dans le bocal, mélangez et fermez.</span></li>
+                </ul>
+
+                <hr class="recipe-divider">
+
+                <h5>🍽️ Tablettes Lave-Vaisselle</h5>
+                <div class="ingredients-box">
+                    <h4>Matériel & Ingrédients :</h4>
+                    <ul>
+                        <li>4 c. à soupe de cristaux de soude</li>
+                        <li>4 c. à soupe d'acide citrique</li>
+                        <li>3 c. à soupe de percarbonate de soude</li>
+                        <li>1 c. à soupe de vinaigre d'alcool</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="recipe-divider" style="border-top-style: solid; border-top-width: 2px;">
+
+            <!-- BLOC : LINGE -->
+            <div class="recipe-group">
+                <h4>🧺 Catégorie : Linge</h4>
+                
+                <h5>Lessive Maison</h5>
+                <div class="calculator">
+                    <label for="lessive-qty">Quantité souhaitée :</label>
+                    <select id="lessive-qty" onchange="updateLessive()">
+                        <option value="1">1 Litre</option>
+                        <option value="2" selected>2 Litres</option>
+                    </select>
+                </div>
+                <div class="ingredients-box">
+                    <h4>Ingrédients :</h4>
+                    <ul>
+                        <li><span id="ing-savon">5</span> c. à soupe de savon noir mou</li>
+                        <li><span id="ing-bicar">4</span> c. à soupe de bicarbonate de soude</li>
+                        <li><span id="ing-cristaux">2</span> c. à soupe de cristaux de soude</li>
+                        <li><span id="ing-eau-chaude">1</span> L d'eau chaude</li>
+                        <li><span id="ing-eau-amb">1</span> L d'eau à température ambiante</li>
+                    </ul>
+                </div>
+                <h5>Préparation pas-à-pas :</h5>
+                <ul class="step-list">
+                    <li class="step-item"><input type="checkbox"> <span>Faire fondre le savon noir dans l'eau chaude.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Une fois le mélange homogène, ajoutez le bicarbonate et les cristaux de soude, puis mélangez.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Ajoutez l'eau à température ambiante et mélangez à nouveau.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Laissez refroidir, votre lessive est prête à être versée dans votre bidon !</span></li>
+                </ul>
+
+                <hr class="recipe-divider">
+
+                <h5>🌿 Adoucissant</h5>
+                <div class="ingredients-box">
+                    <h4>Matériel & Ingrédients :</h4>
+                    <ul>
+                        <li>1 flacon d'1 litre</li>
+                        <li>500 ml d'eau déminéralisée</li>
+                        <li>500 ml de vinaigre d'alcool</li>
+                        <li>15 gouttes d'huile essentielle de votre choix (ex: lavande fine)</li>
+                    </ul>
+                </div>
+                <h5>Préparation :</h5>
+                <ul class="step-list">
+                    <li class="step-item"><input type="checkbox"> <span>Versez directement dans le flacon l'eau déminéralisée et le vinaigre d'alcool.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Ajoutez l'huile essentielle.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Secouez légèrement. C'est prêt !</span></li>
+                </ul>
+                <div class="tip">
+                    <strong>Conseil :</strong> Utilisez l'équivalent de 3 cuillères à soupe par lavage.
+                </div>
+            </div>
+
+            <hr class="recipe-divider" style="border-top-style: solid; border-top-width: 2px;">
+
+            <!-- BLOC : MULTI-USAGES -->
+            <div class="recipe-group">
+                <h4>✨ Catégorie : Multi-usages</h4>
+                
+                <h5>🪟 Nettoyant surface vitrée</h5>
+                <div class="ingredients-box">
+                    <h4>Matériel & Ingrédients :</h4>
+                    <ul>
+                        <li>1 flacon spray</li>
+                        <li>500 ml d'eau déminéralisée</li>
+                        <li>100 ml d'alcool ménager</li>
+                        <li>200 ml de vinaigre d'alcool</li>
+                    </ul>
+                </div>
+                <h5>Préparation :</h5>
+                <ul class="step-list">
+                    <li class="step-item"><input type="checkbox"> <span>Versez l'eau déminéralisée, l'alcool ménager et le vinaigre d'alcool dans le flacon spray.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Refermez le spray.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Secouez brièvement.</span></li>
+                </ul>
+                <div class="tip">
+                    <strong>Utilisation :</strong> Votre nettoyant vitre est prêt à être utilisé pour le nettoyage des vitres, appareils électroniques, poignées de porte…
+                </div>
+
+                <hr class="recipe-divider">
+
+                <h5>🗑️ Désodorisant poubelle</h5>
+                <div class="ingredients-box">
+                    <h4>Matériel & Ingrédients :</h4>
+                    <ul>
+                        <li>1 coupelle ou 1 récipient</li>
+                        <li>2 c. à soupe de bicarbonate de soude</li>
+                        <li>15 gouttes d'huile essentielle d'arbre à thé</li>
+                    </ul>
+                </div>
+                <h5>Préparation :</h5>
+                <ul class="step-list">
+                    <li class="step-item"><input type="checkbox"> <span>Dans un récipient, mettre le bicarbonate de soude.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Ajoutez les huiles essentielles.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Mélangez le tout.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Posez ce récipient au fond de la poubelle.</span></li>
                 </ul>
             </div>
-            <h4>Préparation :</h4>
-            <ul class="step-list">
-                <li class="step-item"><input type="checkbox"> <span>Versez l'eau déminéralisée, l'alcool ménager et le vinaigre d'alcool dans le flacon spray.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Refermez le spray.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Secouez brièvement.</span></li>
-            </ul>
-            <div class="tip">
-                <strong>Utilisation :</strong> Votre nettoyant vitre est prêt à être utilisé pour le nettoyage des vitres, appareils électroniques, poignées de porte…
-            </div>
 
-            <hr class="recipe-divider">
-
-            <h4>🗑️ Désodorisant poubelle</h4>
-            <div class="ingredients-box">
-                <h4>Matériel & Ingrédients :</h4>
-                <ul>
-                    <li>1 coupelle ou 1 récipient</li>
-                    <li>2 c. à soupe de bicarbonate de soude</li>
-                    <li>15 gouttes d'huile essentielle d'arbre à thé</li>
-                </ul>
-            </div>
-            <h4>Préparation :</h4>
-            <ul class="step-list">
-                <li class="step-item"><input type="checkbox"> <span>Dans un récipient, mettre le bicarbonate de soude.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Ajoutez les huiles essentielles.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Mélangez le tout.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Posez ce récipient au fond de la poubelle.</span></li>
-            </ul>
-        </div>
-
-        <!-- Sous-section : Vaisselle -->
-        <div id="vaisselle-subsection" class="sub-section">
-            <h3>🍽️ Vos Recettes Vaisselle</h3>
-            <h4>🍽️ Poudre Lave-Vaisselle</h4>
-            <div class="ingredients-box">
-                <h4>Matériel & Ingrédients :</h4>
-                <ul>
-                    <li>1 bocal hermétique en verre</li>
-                    <li>4 c. à soupe de cristaux de soude</li>
-                    <li>4 c. à soupe d'acide citrique</li>
-                    <li>3 c. à soupe de percarbonate de soude</li>
-                </ul>
-            </div>
-            <h4>Réalisation :</h4>
-            <ul class="step-list">
-                <li class="step-item"><input type="checkbox"> <span>Versez les poudres dans le bocal, mélangez et fermez.</span></li>
-            </ul>
-
-            <hr class="recipe-divider">
-
-            <h4>🍽️ Tablettes Lave-Vaisselle</h4>
-            <div class="ingredients-box">
-                <h4>Matériel & Ingrédients :</h4>
-                <ul>
-                    <li>4 c. à soupe de cristaux de soude</li>
-                    <li>4 c. à soupe d'acide citrique</li>
-                    <li>3 c. à soupe de percarbonate de soude</li>
-                    <li>1 c. à soupe de vinaigre d'alcool</li>
-                </ul>
-            </div>
         </div>
     </div>
 
-    <!-- AUTRES SECTIONS (Vides pour l'instant, prêtes à être remplies) -->
+    <!-- AUTRES SECTIONS -->
     <div id="beaute-section" class="section">
         <h2>🌸 Beauté au naturel</h2>
         <p>Les recettes de cosmétiques maison arriveront bientôt !</p>
@@ -419,42 +466,32 @@
         <p>Les astuces pour chouchouter les tout-petits arriveront bientôt !</p>
     </div>
 
-    <!-- --- CODE JAVASCRIPT REQUIS POUR LE FONCTIONNEMENT --- -->
     <script>
-        // Fonction pour changer de section principale (Présentation, Ménage, Beauté, Bébé)
         function showSection(sectionId) {
-            // Masquer toutes les sections
             const sections = document.querySelectorAll('.section');
             sections.forEach(sec => sec.classList.remove('active'));
 
-            // Afficher la section demandée
             const targetSection = document.getElementById(sectionId + '-section');
             if (targetSection) {
                 targetSection.classList.add('active');
             }
         }
 
-        // Fonction pour changer de sous-section (Produits de base, Linge, etc.)
         function showSubSection(subSectionId, event) {
-            // Masquer toutes les sous-sections du bloc parent
             const container = event.target.closest('.section');
             const subSections = container.querySelectorAll('.sub-section');
             subSections.forEach(sub => sub.classList.remove('active'));
 
-            // Désactiver l'état actif sur les boutons de cette sous-navigation
             const subButtons = container.querySelectorAll('.sub-nav-btn');
             subButtons.forEach(btn => btn.classList.remove('active'));
 
-            // Activer la sous-section et le bouton cliqué
             document.getElementById(subSectionId + '-subsection').classList.add('active');
             event.target.classList.add('active');
         }
 
-        // Calculateur dynamique pour la quantité de Lessive Maison
         function updateLessive() {
             const qty = parseInt(document.getElementById('lessive-qty').value);
             
-            // Ajustement des doses en fonction de la quantité sélectionnée (1L ou 2L)
             document.getElementById('ing-savon').innerText = qty === 1 ? "2.5" : "5";
             document.getElementById('ing-bicar').innerText = qty === 1 ? "2" : "4";
             document.getElementById('ing-cristaux').innerText = qty === 1 ? "1" : "2";
