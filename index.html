@@ -222,6 +222,13 @@
             font-weight: bold;
         }
 
+        .sub-nav-btn.active.btn-bebe-style {
+            background-color: var(--accent-bebe, #dabeb7);
+            color: white;
+            border-color: var(--accent-bebe, #dabeb7);
+            font-weight: bold;
+        }
+
         .sub-section { display: none; }
         .sub-section.active { display: block; animation: fadeIn 0.4s ease; }
         @keyframes fadeIn {
@@ -247,7 +254,7 @@
     <div id="presentation-section" class="section active">
         <h2>🌿 Bienvenue dans l’univers Routine au naturel</h2>
         <p class="presentation-intro">Une nouvelle façon de vivre mieux, tout simplement. 🤍</p>
-        <p class="presentation-intro">Vous aspirez à un quotidien plus sain, plus respectueux de votre santé et de la planète, mais vous ne savez pas par où commencer ? Ne bougez plus, vous êtes au bon endroit ! Sur cet outil, pas de prise de tête ni d’injonctions. Je partage avec vous des astuces, des conseils pratiques et des recettes simples, accessibles et rapides à intégrer dans votre quotidien</p>
+        <p class="presentation-intro">Vous aspirez à un quotidien plus sain, mais vous ne savez pas par où commencer ? Ne bougez plus, vous êtes au bon endroit ! Sur cet outil, pas de prise de tête ni d’injonctions. Je partage avec vous des astuces, des conseils pratiques et des recettes simples, accessibles et rapides à intégrer dans votre quotidien</p>
         
         <div class="ingredients-box">
             <h4>🎨 Nos 3 univers au quotidien :</h4>
@@ -624,9 +631,7 @@
                     <li class="step-item"><input type="checkbox"> <span>Rincez vos cheveux à l'eau tiède et procédez à votre shampooing habituel.</span></li>
                 </ul>
                 <div class="tip">
-                    <strong>💡 Conseils pratiques :</strong><br>
-                    • Plus votre mélange sera lisse et plus il sera facile à rincer.<br>
-                    • Faites la pose du masque sur des cheveux bien démêlés.
+                    <strong>Conseil de pose :</strong> Laissez poser au moins 2h pour nourrir en profondeur.
                 </div>
             </div>
         </div>
@@ -634,61 +639,110 @@
 
     <div id="bebe-section" class="section">
         <h2>👶 Bébé au naturel</h2>
-        <p>Des conseils bien-être et des recettes ultra-saines pour chouchouter la peau délicate de vos tout-petits.</p>
-        <div class="tip">
-            ✨ Cet univers est en cours de préparation. Revenez bientôt pour découvrir des recettes exclusives !
+        
+        <div class="sub-nav">
+            <button class="sub-nav-btn active btn-bebe-style" onclick="showSubSection('bebe', 'conseils', event)">💡 Conseils</button>
+            <button class="sub-nav-btn btn-bebe-style" onclick="showSubSection('bebe', 'recettes', event)">🧪 Recettes</button>
+        </div>
+
+        <div id="bebe-conseils-subsection" class="sub-section active">
+            <h3>💡 Nos Conseils pour Bébé</h3>
+            <p>Des conseils bien-être et des recettes ultra-saines pour chouchouter la peau délicate de vos tout-petits.</p>
+        </div>
+
+        <div id="bebe-recettes-subsection" class="sub-section">
+            <h3>🧪 Vos Recettes Bébé Maison</h3>
+            
+            <div class="recipe-group">
+                <h5>🍊 Eau de toilette bébé</h5>
+                <div class="ingredients-box">
+                    <h4>Ingrédients :</h4>
+                    <ul>
+                        <li>75 ml d'eau minérale</li>
+                        <li>20 ml d'eau de fleur d'oranger</li>
+                        <li>95 gouttes ou 2.2 ml de solubol</li>
+                        <li>8 gouttes douceur d'ange (fragrance)</li>
+                        <li>25 gouttes douceur lactée (fragrance)</li>
+                        <li>4 gouttes de cosgard ou un autre conservateur</li>
+                        <li>Flacon spray vide de 100 ml</li>
+                    </ul>
+                </div>
+                <h5>Préparation & Application :</h5>
+                <ul class="step-list">
+                    <li class="step-item"><input type="checkbox"> <span>Mettez le solubol dans un récipient.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Ajoutez l'eau et l'eau de fleur d'oranger.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Mélangez.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Versez les fragrances et le conservateur. Mélangez.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Transvasez cette préparation dans votre spray.</span></li>
+                </ul>
+                <div class="tip">
+                    <strong>Conseil :</strong> Eau de toilette toute douce pour bébé. À vaporiser sur les vêtements, directement sur la peau ou sur la brosse de bébé avant de lui brosser les cheveux.
+                </div>
+            </div>
+
+            <hr class="recipe-divider">
+
+            <div class="recipe-group">
+                <h5>🫒 Liniment</h5>
+                <div class="ingredients-box">
+                    <h4>Ingrédients :</h4>
+                    <ul>
+                        <li>250 ml d'eau de chaux</li>
+                        <li>250 ml d'huile d'olive</li>
+                        <li>3 cuillères à café de cire d'abeille</li>
+                    </ul>
+                </div>
+                <h5>Préparation & Application :</h5>
+                <ul class="step-list">
+                    <li class="step-item"><input type="checkbox"> <span>Dans un récipient, versez tous les ingrédients (eau de chaux, huile d'olive et cire d'abeille).</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Mettez le récipient au bain-marie et faites fondre complètement la cire d'abeille.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Une fois la cire fondue, retirez du feu et remuez à l'aide d'un fouet pendant quelques minutes.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Laissez refroidir à température ambiante en mélangeant de temps en temps jusqu'à épaississement.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Transvasez délicatement la préparation finale dans votre flacon de 500 ml. C'est prêt !</span></li>
+                </ul>
+            </div>
         </div>
     </div>
 
     <script>
-        // Gestion des onglets principaux
         function showSection(sectionId) {
-            // Masquer toutes les sections
+            // Masquer toutes les sections principales
             document.querySelectorAll('.section').forEach(section => {
                 section.classList.remove('active');
             });
             // Afficher la section demandée
             const targetSection = document.getElementById(sectionId + '-section');
-            if (targetSection) {
-                targetSection.classList.remove('active'); // Sécurité
-                targetSection.classList.add('active');
-            }
+            if (targetSection) targetSection.classList.add('active');
         }
 
-        // Gestion des sous-onglets internes (Ménage et Beauté)
-        function showSubSection(parentSection, subSectionId, event) {
-            // Masquer toutes les sous-sections de ce parent
-            document.querySelectorAll('#' + parentSection + '-section .sub-section').forEach(sub => {
+        function showSubSection(mainSectionId, subSectionId, event) {
+            // Masquer toutes les sous-sections de cette section principale
+            document.querySelectorAll('#' + mainSectionId + '-section .sub-section').forEach(sub => {
                 sub.classList.remove('active');
             });
-            
+            // Retirer la classe active des boutons de cette sous-navigation
+            if (event && event.target) {
+                const navContainer = event.target.closest('.sub-nav');
+                if (navContainer) {
+                    navContainer.querySelectorAll('.sub-nav-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                }
+                // Activer le bouton cliqué
+                event.target.classList.add('active');
+            }
             // Afficher la sous-section ciblée
-            const targetSub = document.getElementById(parentSection + '-' + subSectionId + '-subsection');
-            if (targetSub) {
-                targetSub.classList.add('active');
-            }
-
-            // Gérer l'état actif des boutons de sous-navigation
-            const navContainer = event.target.closest('.sub-nav');
-            if (navContainer) {
-                navContainer.querySelectorAll('.sub-nav-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-            }
-            event.target.classList.add('active');
+            const targetSub = document.getElementById(mainSectionId + '-' + subSectionId + '-subsection');
+            if (targetSub) targetSub.classList.add('active');
         }
 
-        // Calculatrice interactive pour les proportions de Lessive Maison
         function updateLessive() {
-            const factor = parseFloat(document.getElementById('lessive-qty').value);
-            
-            // Base pour 1 Litre : Savon=2.5, Bicar=2, Cristaux=1, Eau Chaude=0.5, Eau Amb=0.5
-            // On multiplie par le facteur choisi (1 ou 2)
-            document.getElementById('ing-savon').innerText = (2.5 * factor);
-            document.getElementById('ing-bicar').innerText = (2 * factor);
-            document.getElementById('ing-cristaux').innerText = (1 * factor);
-            document.getElementById('ing-eau-chaude').innerText = (0.5 * factor);
-            document.getElementById('ing-eau-amb').innerText = (0.5 * factor);
+            const qty = parseInt(document.getElementById('lessive-qty').value);
+            document.getElementById('ing-savon').innerText = qty === 1 ? '2.5' : '5';
+            document.getElementById('ing-bicar').innerText = qty === 1 ? '2' : '4';
+            document.getElementById('ing-cristaux').innerText = qty === 1 ? '1' : '2';
+            document.getElementById('ing-eau-chaude').innerText = qty === 1 ? '0.5' : '1';
+            document.getElementById('ing-eau-amb').innerText = qty === 1 ? '0.5' : '1';
         }
     </script>
 </body>
