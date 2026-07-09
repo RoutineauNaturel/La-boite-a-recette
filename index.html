@@ -525,6 +525,32 @@
                 <div class="tip">
                     <strong>Conseil :</strong> Vous pouvez l'utiliser sur une brosse ou une éponge selon vos besoins. Pensez à mélanger un peu avant chaque utilisation.
                 </div>
+
+                <hr class="recipe-divider">
+
+                <h5>🍳 Produit pour les façades de cuisine</h5>
+                <div class="ingredients-box">
+                    <h4>Ingrédients & Matériel :</h4>
+                    <ul>
+                        <li>1 récipient</li>
+                        <li>500 ml d’eau tiède</li>
+                        <li>1 cuillère à soupe de liquide vaisselle</li>
+                        <li>1 cuillère à soupe de vinaigre d’alcool</li>
+                        <li>1 microfibre</li>
+                    </ul>
+                </div>
+                <h5>Préparation :</h5>
+                <ul class="step-list">
+                    <li class="step-item"><input type="checkbox"> <span>Dans le récipient, versez l’eau tiède.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Versez une cuillère à soupe de liquide vaisselle et une cuillère à soupe de vinaigre d’alcool.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Plongez la microfibre dans ce mélange.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Bien essorer.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Nettoyer vos façades.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Laver la microfibre aussi souvent que nécessaire et replongez-la dans le mélange.</span></li>
+                </ul>
+                <div class="tip">
+                    <strong>Résultat :</strong> Vos surfaces sont toutes propres et brillantes. Inutile de repasser avec une microfibre sèche.
+                </div>
             </div>
 
             <hr class="recipe-divider" style="border-top-style: solid; border-top-width: 2px;">
@@ -606,10 +632,10 @@
                 </div>
                 <h5>Préparation & Application :</h5>
                 <ul class="step-list">
-                    <li class="step-item"><input type="checkbox"> <span>Versez le fromage blanc et le charbon végétal dans un contenant, puis mélangez bien.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Versez le fromage blanc and le charbon végétal dans un contenant, puis mélangez bien.</span></li>
                     <li class="step-item"><input type="checkbox"> <span>Appliquez au pinceau sur une peau propre et sèche après avoir nettoyé votre visage.</span></li>
                     <li class="step-item"><input type="checkbox"> <span>Rincez à la fin du temps de pose !</span></li>
-                    <li class="step-item"><input type="checkbox"> <span>Appliquez une eau florale et laissez sécher.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Appliquez une eau florale and laissez sécher.</span></li>
                     <li class="step-item"><input type="checkbox"> <span>Terminez par l'application d'une huile sèche (type huile d'argan, huile d'avocat…).</span></li>
                 </ul>
                 <div class="tip">
@@ -756,21 +782,17 @@
 
     <script>
         function showSection(sectionId) {
-            // Masquer toutes les sections principales
             document.querySelectorAll('.section').forEach(section => {
                 section.classList.remove('active');
             });
-            // Afficher la section demandée
             const targetSection = document.getElementById(sectionId + '-section');
             if (targetSection) targetSection.classList.add('active');
         }
 
         function showSubSection(mainSectionId, subSectionId, event) {
-            // Masquer toutes les sous-sections de cette section principale
             document.querySelectorAll('#' + mainSectionId + '-section .sub-section').forEach(sub => {
                 sub.classList.remove('active');
             });
-            // Retirer la classe active des boutons de cette sous-navigation
             if (event && event.target) {
                 const navContainer = event.target.closest('.sub-nav');
                 if (navContainer) {
@@ -778,10 +800,8 @@
                         btn.classList.remove('active');
                     });
                 }
-                // Activer le bouton cliqué
                 event.target.classList.add('active');
             }
-            // Afficher la sous-section ciblée
             const targetSub = document.getElementById(mainSectionId + '-' + subSectionId + '-subsection');
             if (targetSub) targetSub.classList.add('active');
         }
