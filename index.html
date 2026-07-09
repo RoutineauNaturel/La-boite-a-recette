@@ -176,7 +176,6 @@
             margin-bottom: 15px;
         }
 
-        /* Presentation Style addition */
         .presentation-intro {
             line-height: 1.6;
             margin-bottom: 20px;
@@ -209,23 +208,18 @@
         }
         .sub-nav-btn:hover { background-color: #e2e2e2; }
         
-        .sub-nav-btn.active {
-            background-color: var(--accent-beaute, #e6b8af);
-            color: white;
-            border-color: var(--accent-beaute, #e6b8af);
-            font-weight: bold;
-        }
-        
         .sub-nav-btn.active.btn-maison-style {
             background-color: var(--accent-maison, #545454);
             color: white;
             border-color: var(--accent-maison, #545454);
+            font-weight: bold;
         }
         
         .sub-nav-btn.active.btn-beaute-style {
             background-color: var(--accent-beaute, #e5b3b3);
             color: white;
             border-color: var(--accent-beaute, #e5b3b3);
+            font-weight: bold;
         }
 
         .sub-section { display: none; }
@@ -250,7 +244,6 @@
         <button class="nav-btn" id="btn-bebe" onclick="showSection('bebe')">Bébé</button>
     </div>
 
-    <!-- SECTION PRÉSENTATION -->
     <div id="presentation-section" class="section active">
         <h2>🌿 Bienvenue dans l’univers Routine au naturel</h2>
         <p class="presentation-intro">Une nouvelle façon de vivre mieux, tout simplement. 🤍</p>
@@ -268,18 +261,16 @@
         <p class="presentation-intro">Formons ensemble une communauté qui avance pas à pas vers un quotidien plus doux et plus vrai. 🫶 Cliquez sur les boutons ci-dessus pour explorer les différentes recettes interactives !</p>
     </div>
 
-    <!-- SECTION MÉNAGE -->
     <div id="maison-section" class="section">
         <h2>✨ Ménage au naturel</h2>
         
         <div class="sub-nav">
-            <button class="sub-nav-btn active btn-maison-style" onclick="showSubSection('base', event)">📦 Produits de base</button>
-            <button class="sub-nav-btn btn-maison-style" onclick="showSubSection('conseils', event)">💡 Conseils</button>
-            <button class="sub-nav-btn btn-maison-style" onclick="showSubSection('recettes', event)">🧪 Nos Recettes</button>
+            <button class="sub-nav-btn active btn-maison-style" onclick="showSubSection('maison', 'base', event)">📦 Produits de base</button>
+            <button class="sub-nav-btn btn-maison-style" onclick="showSubSection('maison', 'conseils', event)">💡 Conseils</button>
+            <button class="sub-nav-btn btn-maison-style" onclick="showSubSection('maison', 'recettes', event)">🧪 Nos Recettes</button>
         </div>
 
-        <!-- Sous-section : Produits de base -->
-        <div id="base-subsection" class="sub-section active">
+        <div id="maison-base-subsection" class="sub-section active">
             <h3>📦 Vos Produits de Base</h3>
             <div class="ingredients-box">
                 <h4>Ingrédients indispensables :</h4>
@@ -293,26 +284,24 @@
             </div>
             <p>💡 <i>Pas besoin de plus, surtout si vous débutez.</i></p>
             <div class="tip">
-                ⏳ Un guide complet pour vous aider à mettre en place une routine ménage simple and rapide arrive bientôt.
+                ⏳ Un guide complet pour vous aider à mettre en place une routine ménage simple et rapide arrive bientôt.
             </div>
         </div>
 
-        <!-- Sous-section : Conseils -->
-        <div id="conseils-subsection" class="sub-section">
+        <div id="maison-conseils-subsection" class="sub-section">
             <h3>💡 Nos Conseils pour un Ménage Serein</h3>
             <div class="ingredients-box">
                 <h4>Les bonnes habitudes :</h4>
                 <ul class="step-list">
-                    <li class="step-item"><input type="checkbox"> <span><strong>Aérer quotidiennement :</strong> 10 minutes matin and soir suffisent pour renouveler l'air.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span><strong>Aérer quotidiennement :</strong> 10 minutes matin et soir suffisent pour renouveler l'air.</span></li>
                     <li class="step-item"><input type="checkbox"> <span><strong>Ne pas tout faire le même jour :</strong> Diviser les tâches sur la semaine pour réduire la charge mentale.</span></li>
-                    <li class="step-item"><input type="checkbox"> <span><strong>Nettoyer au fur and à mesure :</strong> Passer un coup d'éponge après chaque utilisation évite l'encrassement.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span><strong>Nettoyer au fur et à mesure :</strong> Passer un coup d'éponge après chaque utilisation évite l'encrassement.</span></li>
                 </ul>
             </div>
             <div class="tip">
-                <strong>Rappel sécurité :</strong> Ne mélangez jamais le vinaigre blanc and le bicarbonate dans un contenant fermé (réaction effervescente), and ne mélangez jamais le vinaigre avec de l'eau de Javel !
+                <strong>Rappel sécurité :</strong> Ne mélangez jamais le vinaigre blanc et le bicarbonate dans un contenant fermé (réaction effervescente), et ne mélangez jamais le vinaigre avec de l'eau de Javel !
             </div>
 
-            <!-- AJOUT : ENTRETIEN DU LAVE-VAISSELLE -->
             <hr class="recipe-divider">
             <h3>🍽️ Comment entretenir efficacement son lave-vaisselle ?</h3>
             
@@ -346,11 +335,9 @@
             </div>
         </div>
 
-        <!-- Sous-section Unique : Recettes Ménage -->
-        <div id="recettes-subsection" class="sub-section">
+        <div id="maison-recettes-subsection" class="sub-section">
             <h3>🧪 Vos Recettes Maison</h3>
             
-            <!-- BLOC : VAISSELLE -->
             <div class="recipe-group">
                 <h4>🍽️ Catégorie : Vaisselle</h4>
                 
@@ -367,13 +354,12 @@
                 <h5>Préparation :</h5>
                 <ul class="step-list">
                     <li class="step-item"><input type="checkbox"> <span>Mélanger le savon noir dans l'eau chaude jusqu'à dissolution complète.</span></li>
-                    <li class="step-item"><input type="checkbox"> <span>Ajouter délicatement le bicarbonate and les cristaux de soude (attention, ça peut mousser un peu).</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Ajouter délicatement le bicarbonate et les cristaux de soude (attention, ça peut mousser un peu).</span></li>
                     <li class="step-item"><input type="checkbox"> <span>Verser dans un ancien flacon de liquide vaisselle propre. Secouer avant usage.</span></li>
                 </ul>
 
                 <hr class="recipe-divider">
 
-                <!-- MODIFICATION FAITE PRÉCÉDEMMENT POUR LA POUDRE -->
                 <h5>🍽️ Poudre Lave-Vaisselle</h5>
                 <div class="ingredients-box">
                     <h4>Matériel & Ingrédients :</h4>
@@ -386,12 +372,11 @@
                 </div>
                 <h5>Réalisation :</h5>
                 <ul class="step-list">
-                    <li class="step-item"><input type="checkbox"> <span>Versez les poudres dans le bocal, mélangez and fermez.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Versez les poudres dans le bocal, mélangez et fermez.</span></li>
                 </ul>
 
                 <hr class="recipe-divider">
 
-                <!-- Tablettes Lave-Vaisselle -->
                 <h5>🍽️ Tablettes Lave-Vaisselle</h5>
                 <div class="ingredients-box">
                     <h4>Matériel & Ingrédients :</h4>
@@ -406,7 +391,6 @@
 
             <hr class="recipe-divider" style="border-top-style: solid; border-top-width: 2px;">
 
-            <!-- BLOC : LINGE -->
             <div class="recipe-group">
                 <h4>🧺 Catégorie : Linge</h4>
                 
@@ -431,19 +415,18 @@
                 <h5>Préparation pas-à-pas :</h5>
                 <ul class="step-list">
                     <li class="step-item"><input type="checkbox"> <span>Faire fondre le savon noir dans l'eau chaude.</span></li>
-                    <li class="step-item"><input type="checkbox"> <span>Une fois le mélange homogène, ajoutez le bicarbonate and les cristaux de soude, puis mélangez.</span></li>
-                    <li class="step-item"><input type="checkbox"> <span>Ajoutez l'eau à température ambiante and mélangez à nouveau.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Une fois le mélange homogène, ajoutez le bicarbonate et les cristaux de soude, puis mélangez.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Ajoutez l'eau à température ambiante et mélangez à nouveau.</span></li>
                     <li class="step-item"><input type="checkbox"> <span>Laissez refroidir, votre lessive est prête à être versée dans votre bidon !</span></li>
                 </ul>
 
                 <hr class="recipe-divider">
 
-                <!-- Adoucissant -->
                 <h5>🌿 Adoucissant</h5>
                 <div class="ingredients-box">
                     <h4>Matériel & Ingrédients :</h4>
                     <ul>
-                        <li>1 flacon d'1 litre</li>
+                        <li>1 flacon d'1 livre</li>
                         <li>500 ml d'eau déminéralisée</li>
                         <li>500 ml de vinaigre d'alcool</li>
                         <li>15 gouttes d'huile essentielle de votre choix (ex: lavande fine)</li>
@@ -451,7 +434,7 @@
                 </div>
                 <h5>Préparation :</h5>
                 <ul class="step-list">
-                    <li class="step-item"><input type="checkbox"> <span>Versez directement dans le flacon l'eau déminéralisée and le vinaigre d'alcool.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Versez directement dans le flacon l'eau déminéralisée et le vinaigre d'alcool.</span></li>
                     <li class="step-item"><input type="checkbox"> <span>Ajoutez l'huile essentielle.</span></li>
                     <li class="step-item"><input type="checkbox"> <span>Secouez légèrement. C'est prêt !</span></li>
                 </ul>
@@ -462,7 +445,6 @@
 
             <hr class="recipe-divider" style="border-top-style: solid; border-top-width: 2px;">
 
-            <!-- BLOC : MULTI-USAGES -->
             <div class="recipe-group">
                 <h4>✨ Catégorie : Multi-usages</h4>
                 
@@ -478,7 +460,7 @@
                 </div>
                 <h5>Préparation :</h5>
                 <ul class="step-list">
-                    <li class="step-item"><input type="checkbox"> <span>Versez l'eau déminéralisée, l'alcool ménager and le vinaigre d'alcool dans le flacon spray.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Versez l'eau déminéralisée, l'alcool ménager et le vinaigre d'alcool dans le flacon spray.</span></li>
                     <li class="step-item"><input type="checkbox"> <span>Refermez le spray.</span></li>
                     <li class="step-item"><input type="checkbox"> <span>Secouez brièvement.</span></li>
                 </ul>
@@ -507,7 +489,6 @@
 
                 <hr class="recipe-divider">
 
-                <!-- AJOUT DE LA CRÈME À RÉCURER -->
                 <h5>🧽 Crème à récurer</h5>
                 <div class="ingredients-box">
                     <h4>Ingrédients & Matériel :</h4>
@@ -531,7 +512,6 @@
 
             <hr class="recipe-divider" style="border-top-style: solid; border-top-width: 2px;">
 
-            <!-- BLOC : WC -->
             <div class="recipe-group">
                 <h4>🚽 Catégorie : WC</h4>
                 
@@ -560,26 +540,21 @@
         </div>
     </div>
 
-    <!-- SECTION BEAUTÉ -->
     <div id="beaute-section" class="section">
         <h2>🌸 Beauté au naturel</h2>
         
-        <!-- Navigation interne Beauté -->
         <div class="sub-nav">
-            <button class="sub-nav-btn active btn-beaute-style" onclick="showSubSection('beaute-intro', event)">✨ Introduction</button>
-            <button class="sub-nav-btn btn-beaute-style" onclick="showSubSection('beaute-recettes', event)">🧪 Recettes Beauté</button>
+            <button class="sub-nav-btn active btn-beaute-style" onclick="showSubSection('beaute', 'intro', event)">✨ Introduction</button>
+            <button class="sub-nav-btn btn-beaute-style" onclick="showSubSection('beaute', 'recettes', event)">🧪 Recettes Beauté</button>
         </div>
 
-        <!-- Sous-section : Intro -->
         <div id="beaute-intro-subsection" class="sub-section active">
-            <p>Prendre soin de soi et  rayonner sans dépenser des millions, grâce à des ingrédients simples que l'on a tous dans nos placards.</p>
+            <p>Prendre soin de soi et rayonner sans dépenser des millions, grâce à des ingrédients simples que l'on a tous dans nos placards.</p>
         </div>
 
-        <!-- Sous-section : Recettes de Cosmétiques -->
         <div id="beaute-recettes-subsection" class="sub-section">
             <h3>🧪 Vos Recettes Cosmétiques Maison</h3>
             
-            <!-- MASQUE PURIFIANT VISAGE MINUTE -->
             <div class="recipe-group">
                 <h5>🖤 Masque purifiant visage minute</h5>
                 <div class="ingredients-box">
@@ -591,43 +566,41 @@
                 </div>
                 <h5>Préparation & Application :</h5>
                 <ul class="step-list">
-                    <li class="step-item"><input type="checkbox"> <span>Versez le fromage blanc and le charbon végétal dans un contenant, puis mélangez bien.</span></li>
-                    <li class="step-item"><input type="checkbox"> <span>Appliquez au pinceau sur une peau propre and sèche après avoir nettoyé votre visage.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Versez le fromage blanc et le charbon végétal dans un contenant, puis mélangez bien.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Appliquez au pinceau sur une peau propre et sèche après avoir nettoyé votre visage.</span></li>
                     <li class="step-item"><input type="checkbox"> <span>Rincez à la fin du temps de pose !</span></li>
-                    <li class="step-item"><input type="checkbox"> <span>Appliquez une eau florale and laissez sécher.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Appliquez une eau florale et laissez sécher.</span></li>
                     <li class="step-item"><input type="checkbox"> <span>Terminez par l'application d'une huile sèche (type huile d'argan, huile d'avocat…).</span></li>
                 </ul>
                 <div class="tip">
-                    <strong>Conseil de pose :</strong> Laissez poser entre 5 minutes (si vous avez la peau sensible) and 10 minutes.
+                    <strong>Conseil de pose :</strong> Laissez poser entre 5 minutes (si vous avez la peau sensible) et 10 minutes.
                 </div>
             </div>
 
             <hr class="recipe-divider">
 
-            <!-- EAU DE RINÇAGE -->
             <div class="recipe-group">
                 <h5>🍏 Eau de rinçage</h5>
                 <div class="ingredients-box">
                     <h4>Ingrédients :</h4>
                     <ul>
-                        <li>1 livre d'eau froide</li>
+                        <li>1 Litre d'eau froide</li>
                         <li>1 à 2 c. à soupe de vinaigre de cidre</li>
                     </ul>
                 </div>
                 <h5>Préparation & Application :</h5>
                 <ul class="step-list">
                     <li class="step-item"><input type="checkbox"> <span>Mélangez ces deux ingrédients.</span></li>
-                    <li class="step-item"><input type="checkbox"> <span>Sur cheveux propres and mouillés (en sortant de la douche), rincez-vous les cheveux avec ce mélange en dernière eau de rinçage.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Sur cheveux propres et mouillés (en sortant de la douche), rincez-vous les cheveux avec ce mélange en dernière eau de rinçage.</span></li>
                 </ul>
                 <div class="tip">
-                    <strong>Le saviez-vous ?</strong> Cette action permet de resserrer les écailles du cheveu and de garder l'hydratation. Les cheveux deviennent plus souples and brillants.
+                    <strong>Le saviez-vous ?</strong> Cette action permet de resserrer les écailles du cheveu et de garder l'hydratation. Les cheveux deviennent plus souples et brillants.
                 </div>
                 <p style="font-size: 0.9em; font-style: italic; color: #666; margin-top: 10px;">ℹ️ Info : L'odeur du vinaigre de cidre s'estompe rapidement.</p>
             </div>
 
             <hr class="recipe-divider">
 
-            <!-- MASQUE CHEVEUX BANANE & OLIVE -->
             <div class="recipe-group">
                 <h5>🍌 Masque cheveux Banane & Olive</h5>
                 <div class="ingredients-box">
@@ -645,62 +618,77 @@
                 <h5>Préparation & Application :</h5>
                 <ul class="step-list">
                     <li class="step-item"><input type="checkbox"> <span>Écrasez grossièrement la banane à la fourchette puis ajoutez les huiles.</span></li>
-                    <li class="step-item"><input type="checkbox"> <span>Bien mélanger and essayer d'obtenir un mélange bien lisse (vous pouvez aussi passer ce mélange au mixeur).</span></li>
-                    <li class="step-item"><input type="checkbox"> <span>Ajoutez la glycérine (si vous l'utilisez) and mélangez à nouveau.</span></li>
-                    <li class="step-item"><input type="checkbox"> <span>Appliquez sur vos cheveux mèche par mèche and laissez poser au minimum 2h. <i>Ne pas appliquer sur les racines.</i></span></li>
-                    <li class="step-item"><input type="checkbox"> <span>Rincez vos cheveux à l'eau tiède and procédez à votre shampooing habituel.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Bien mélanger et essayer d'obtenir un mélange bien lisse (vous pouvez aussi passer ce mélange au mixeur).</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Ajoutez la glycérine (si vous l'utilisez) et mélangez à nouveau.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Appliquez sur vos cheveux mèche par mèche et laissez poser au minimum 2h. <i>Ne pas appliquer sur les racines.</i></span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Rincez vos cheveux à l'eau tiède et procédez à votre shampooing habituel.</span></li>
                 </ul>
                 <div class="tip">
                     <strong>💡 Conseils pratiques :</strong><br>
-                    • Plus votre mélange sera lisse and plus il sera facile à rincer.<br>
-                    • Faites la pose du masque sur des cheveux bien démêlés.<br>
-                    • Les quantités indiquées sont suffisantes pour des cheveux mi-longs and un volume moyen.
+                    • Plus votre mélange sera lisse et plus il sera facile à rincer.<br>
+                    • Faites la pose du masque sur des cheveux bien démêlés.
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- SECTION BÉBÉ -->
     <div id="bebe-section" class="section">
         <h2>👶 Bébé au naturel</h2>
-        <p>Les astuces pour chouchouter les tout-petits arriveront bientôt !</p>
+        <p>Des conseils bien-être et des recettes ultra-saines pour chouchouter la peau délicate de vos tout-petits.</p>
+        <div class="tip">
+            ✨ Cet univers est en cours de préparation. Revenez bientôt pour découvrir des recettes exclusives !
+        </div>
     </div>
 
     <script>
+        // Gestion des onglets principaux
         function showSection(sectionId) {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(sec => sec.classList.remove('active'));
-
+            // Masquer toutes les sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            // Afficher la section demandée
             const targetSection = document.getElementById(sectionId + '-section');
             if (targetSection) {
+                targetSection.classList.remove('active'); // Sécurité
                 targetSection.classList.add('active');
             }
         }
 
-        function showSubSection(subSectionId, event) {
-            // Récupère la section parente active pour ne filtrer que ses propres sous-sections
-            const activeSection = event.target.closest('.section');
-            const subSections = activeSection.querySelectorAll('.sub-section');
-            subSections.forEach(sub => sub.classList.remove('active'));
-
-            const targetSubSection = activeSection.querySelector('#' + subSectionId + '-subsection');
-            if (targetSubSection) {
-                targetSubSection.classList.add('active');
+        // Gestion des sous-onglets internes (Ménage et Beauté)
+        function showSubSection(parentSection, subSectionId, event) {
+            // Masquer toutes les sous-sections de ce parent
+            document.querySelectorAll('#' + parentSection + '-section .sub-section').forEach(sub => {
+                sub.classList.remove('active');
+            });
+            
+            // Afficher la sous-section ciblée
+            const targetSub = document.getElementById(parentSection + '-' + subSectionId + '-subsection');
+            if (targetSub) {
+                targetSub.classList.add('active');
             }
 
-            // Gère l'état actif des boutons de navigation interne
-            const subNavButtons = activeSection.querySelectorAll('.sub-nav-btn');
-            subNavButtons.forEach(btn => btn.classList.remove('active'));
+            // Gérer l'état actif des boutons de sous-navigation
+            const navContainer = event.target.closest('.sub-nav');
+            if (navContainer) {
+                navContainer.querySelectorAll('.sub-nav-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+            }
             event.target.classList.add('active');
         }
 
+        // Calculatrice interactive pour les proportions de Lessive Maison
         function updateLessive() {
-            const qty = document.getElementById('lessive-qty').value;
-            document.getElementById('ing-savon').innerText = qty == "1" ? "2.5" : "5";
-            document.getElementById('ing-bicar').innerText = qty == "1" ? "2" : "4";
-            document.getElementById('ing-cristaux').innerText = qty == "1" ? "1" : "2";
-            document.getElementById('ing-eau-chaude').innerText = qty == "1" ? "0.5" : "1";
-            document.getElementById('ing-eau-amb').innerText = qty == "1" ? "0.5" : "1";
+            const factor = parseFloat(document.getElementById('lessive-qty').value);
+            
+            // Base pour 1 Litre : Savon=2.5, Bicar=2, Cristaux=1, Eau Chaude=0.5, Eau Amb=0.5
+            // On multiplie par le facteur choisi (1 ou 2)
+            document.getElementById('ing-savon').innerText = (2.5 * factor);
+            document.getElementById('ing-bicar').innerText = (2 * factor);
+            document.getElementById('ing-cristaux').innerText = (1 * factor);
+            document.getElementById('ing-eau-chaude').innerText = (0.5 * factor);
+            document.getElementById('ing-eau-amb').innerText = (0.5 * factor);
         }
     </script>
 </body>
