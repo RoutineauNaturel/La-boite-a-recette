@@ -3,25 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Routine au naturel - La boîte à recettes</title>
+    <title>Routine au naturel</title>
     <style>
         :root {
-            --accent-maison: #5b8e7d;
-            --accent-beaute: #e09f67;
-            --accent-bebe: #6b9ac4;
+            --accent-maison: #545454;
+            --accent-beaute: #e6b8af;
+            --accent-bebe: #a8dadc;
+            --card-bg: #ffffff;
         }
 
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f9f9f9;
-            color: #333;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f7f7f7;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         header {
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .subtitle {
@@ -29,43 +32,101 @@
             font-style: italic;
         }
 
-        /* Navigations */
-        .nav-buttons, .sub-nav {
+        /* --- BARRE DE NAVIGATION PRINCIPALE --- */
+        .nav-buttons {
             display: flex;
             gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
             margin-bottom: 20px;
         }
 
-        .nav-btn, .sub-nav-btn {
-            padding: 10px 18px;
-            border: 1px solid #ddd;
-            background: #fff;
+        .nav-btn {
+            padding: 10px 20px;
+            border: none;
             border-radius: 20px;
             cursor: pointer;
+            color: white;
             font-weight: bold;
+            transition: transform 0.1s ease, opacity 0.2s ease;
+        }
+
+        .nav-btn:active {
+            transform: scale(0.98);
+        }
+
+        #btn-maison { background-color: var(--accent-maison); }
+        #btn-beaute { background-color: var(--accent-beaute); }
+        #btn-bebe { background-color: var(--accent-bebe); }
+
+        .nav-btn:not(.active) {
+            opacity: 0.6;
+        }
+
+        .nav-btn.active {
+            opacity: 1;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* --- SECTIONS ET CARTE --- */
+        .section {
+            display: none;
+            width: 100%;
+            max-width: 500px;
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+            box-sizing: border-box;
+        }
+
+        .section.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        /* --- STYLES DES SOUS-SECTIONS ET SOUS-NAVIGATION --- */
+        .sub-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .sub-nav-btn {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.85em;
             transition: all 0.3s ease;
         }
 
-        .nav-btn:hover, .sub-nav-btn:hover {
-            background: #eee;
+        .sub-nav-btn:hover { 
+            background-color: #e2e2e2; 
         }
 
-        .nav-btn.active, .sub-nav-btn.active {
-            background: #333;
-            color: #fff;
-            border-color: #333;
+        .sub-nav-btn.active {
+            background-color: var(--accent-beaute, #e6b8af);
+            color: white;
+            border-color: var(--accent-beaute, #e6b8af);
+            font-weight: bold;
         }
 
-        /* Sections & Sub-sections */
-        .section, .sub-section {
-            display: none;
+        .sub-nav-btn.active.btn-maison-style {
+            background-color: var(--accent-maison, #545454);
+            color: white;
+            border-color: var(--accent-maison, #545454);
         }
 
-        .section.active, .sub-section.active {
-            display: block;
-            animation: fadeIn 0.4s ease;
+        .sub-section { 
+            display: none; 
+        }
+
+        .sub-section.active { 
+            display: block; 
+            animation: fadeIn 0.4s ease; 
         }
 
         @keyframes fadeIn {
@@ -73,58 +134,29 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Boîtes et Recettes */
-        .ingredients-box {
-            background: #ffffff;
-            padding: 15px 20px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            border-left: 5px solid #ccc;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        #maison-section .ingredients-box { border-left-color: var(--accent-maison); }
-        #beaute-section .ingredients-box { border-left-color: var(--accent-beaute); }
-        #bebe-section .ingredients-box { border-left-color: var(--accent-bebe); }
-
-        ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        .step-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-
-        .step-item input[type="checkbox"] {
-            margin-top: 3px;
-        }
-
-        .step-item input[type="checkbox"]:checked + span {
-            text-decoration: line-through;
-            opacity: 0.5;
-        }
-
         .tip {
             font-size: 0.9em;
             background: #fffdf7;
             border: 1px dashed #e6c875;
-            padding: 12px;
+            padding: 10px;
             border-radius: 8px;
             margin-top: 15px;
         }
 
         .calculator {
-            background: #eef5f2;
-            padding: 10px 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
+            margin: 15px 0;
+        }
+
+        .step-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -135,279 +167,160 @@
         <p class="subtitle">Votre quotidien plus sain, pas à pas</p>
     </header>
 
-    <!-- Boutons de navigation principale -->
-    <div class="nav-buttons">
-        <button class="nav-btn active" id="btn-maison" onclick="showSection('maison')">Ménage</button>
-        <button class="nav-btn" id="btn-beaute" onclick="showSection('beaute')">Beauté</button>
-        <button class="nav-btn" id="btn-bebe" onclick="showSection('bebe')">Bébé</button>
+    <!-- Navigation Principale Accessibilité ARIA -->
+    <div class="nav-buttons" role="tablist" aria-label="Sections principales">
+        <button class="nav-btn active" id="btn-maison" role="tab" aria-selected="true" aria-controls="maison-section" onclick="showSection('maison')">Ménage</button>
+        <button class="nav-btn" id="btn-beaute" role="tab" aria-selected="false" aria-controls="beaute-section" onclick="showSection('beaute')">Beauté</button>
+        <button class="nav-btn" id="btn-bebe" role="tab" aria-selected="false" aria-controls="bebe-section" onclick="showSection('bebe')">Bébé</button>
     </div>
 
-    <!-- ========================================== -->
-    <!-- 🧼 1. SECTION MÉNAGE                       -->
-    <!-- ========================================== -->
-    <div id="maison-section" class="section active">
-        <h2>✨ Ménage au naturel</h2>
-
-        <div class="sub-nav">
-            <button class="sub-nav-btn active" onclick="showSubSection('base', event)">📦 Produits de base</button>
-            <button class="sub-nav-btn" onclick="showSubSection('linge', event)">🧺 Linge</button>
-            <button class="sub-nav-btn" onclick="showSubSection('vaisselle', event)">🍽️ Vaisselle</button>
-            <button class="sub-nav-btn" onclick="showSubSection('toilettes', event)">🚽 WC & Bain</button>
-        </div>
-
-        <!-- SS-SECTION : PRODUITS DE BASE -->
-        <div id="sub-base" class="sub-section active">
-            <h3>📦 Vos Produits de Base</h3>
-            <div class="ingredients-box">
-                <h4>Ingrédients indispensables :</h4>
-                <ul class="step-list">
-                    <li class="step-item"><input type="checkbox"> <span>Bicarbonate de soude</span></li>
-                    <li class="step-item"><input type="checkbox"> <span>Vinaigre d'alcool</span></li>
-                    <li class="step-item"><input type="checkbox"> <span>Cristaux de soude</span></li>
-                    <li class="step-item"><input type="checkbox"> <span>Savon noir ménager <i>(personnellement je préfère le savon mou à l’huile de lin)</i></span></li>
-                    <li class="step-item"><input type="checkbox"> <span>Acide citrique</span></li>
-                </ul>
-            </div>
-            <p>💡 <i>Pas besoin de plus, surtout si vous débutez.</i></p>
-        </div>
-
-        <!-- SS-SECTION : LINGE -->
-        <div id="sub-linge" class="sub-section">
-            <h3>🧺 Lessive Maison</h3>
-            <div class="calculator">
-                <label for="lessive-qty">Quantité souhaitée :</label>
-                <select id="lessive-qty" onchange="updateLessive()">
-                    <option value="1">1 Litre</option>
-                    <option value="2" selected>2 Litres</option>
-                </select>
-            </div>
-            <div class="ingredients-box">
-                <h4>Ingrédients :</h4>
-                <ul>
-                    <li><span id="ing-savon">5</span> c. à soupe de savon noir mou</li>
-                    <li><span id="ing-bicar">4</span> c. à soupe de bicarbonate de soude</li>
-                    <li><span id="ing-cristaux">2</span> c. à soupe de cristaux de soude</li>
-                    <li><span id="ing-eau-chaude">1</span> L d'eau chaude</li>
-                    <li><span id="ing-eau-amb">1</span> L d'eau à température ambiante</li>
-                </ul>
-            </div>
-            <h4>Préparation pas-à-pas :</h4>
-            <ul class="step-list">
-                <li class="step-item"><input type="checkbox"> <span>Faire fondre le savon noir dans l'eau chaude.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Une fois le mélange homogène, ajoutez le bicarbonate et les cristaux de soude, puis mélangez.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Ajoutez l'eau à température ambiante et mélangez à nouveau.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Laissez refroidir, votre lessive est prête à être versée dans votre bidon !</span></li>
-            </ul>
-
-            <hr style="margin: 30px 0; border: none; border-top: 1px solid #eee;">
-
-            <h3>🌸 Adoucissant Maison</h3>
-            <div class="ingredients-box">
-                <h4>Matériel & Ingrédients :</h4>
-                <ul>
-                    <li>1 flacon de 1 litre</li>
-                    <li>500 ml d'eau déminéralisée</li>
-                    <li>500 ml de vinaigre d'alcool</li>
-                    <li>15 gouttes d'huile essentielle de votre choix (ex. lavande fine)</li>
-                </ul>
-            </div>
-            <h4>Préparation :</h4>
-            <ul class="step-list">
-                <li class="step-item"><input type="checkbox"> <span>Versez l'eau déminéralisée et le vinaigre d'alcool dans le flacon.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Ajoutez les gouttes d'huile essentielle.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Mélangez doucement avant chaque utilisation.</span></li>
-            </ul>
-        </div>
-
-        <!-- SS-SECTION : VAISSELLE -->
-        <div id="sub-vaisselle" class="sub-section">
-            <h3>🍽️ Vos Recettes Vaisselle</h3>
-            <h4>🍽️ Poudre Lave-Vaisselle</h4>
-            <div class="ingredients-box">
-                <h4>Matériel & Ingrédients :</h4>
-                <ul>
-                    <li>1 bocal hermétique en verre (de préférence)</li>
-                    <li>4 c. à soupe de cristaux de soude</li>
-                    <li>4 c. à soupe d'acide citrique</li>
-                    <li>3 c. à soupe de percarbonate de soude</li>
-                </ul>
-            </div>
-            <h4>Réalisation :</h4>
-            <ul class="step-list">
-                <li class="step-item"><input type="checkbox"> <span>Versez directement dans le bocal toutes les poudres (cristaux de soude, acide citrique et percarbonate).</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Mélangez à l'aide d'une cuillère.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Fermez le bocal et stockez à l'abri de l'humidité.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>C'est déjà prêt !</span></li>
-            </ul>
-            <div class="tip">
-                <strong>Utilisation :</strong> Utilisez l'équivalent de 2 à 3 cuillères à soupe de poudre par lavage directement dans le bac de votre lave-vaisselle.<br><br>
-                <strong>Conseil pratique :</strong> Le bocal doit être hermétique pour éviter à l’humidité de pénétrer, sinon la poudre risque de durcir.
-            </div>
-        </div>
-
-        <!-- SS-SECTION : TOILETTES -->
-        <div id="sub-toilettes" class="sub-section">
-            <h3>🚽 Pastille WC</h3>
-            <div class="ingredients-box">
-                <h4>Ingrédients & Matériel :</h4>
-                <ul>
-                    <li>1 bocal / 1 bac à glaçons</li>
-                    <li>1 c. à soupe d'acide citrique</li>
-                    <li>3 c. à soupe de bicarbonate de soude</li>
-                    <li>1 c. à soupe d'eau</li>
-                </ul>
-            </div>
-            <h4>Préparation :</h4>
-            <ul class="step-list">
-                <li class="step-item"><input type="checkbox"> <span>Dans un saladier, versez les poudres (acide citrique et bicarbonate de soude).</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Versez une cuillère à soupe d’eau en mélangeant très rapidement.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Une fois le mélange homogène, versez dans un bac à glaçons.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Laissez sécher à l’air libre (environ 8h).</span></li>
-            </ul>
-            <div class="tip">
-                <strong>Conseil :</strong> Préparez vos pastilles la nuit pour un séchage optimal. Elles seront prêtes dès le lendemain matin !
-            </div>
-        </div>
-    </div>
-
-    <!-- ========================================== -->
-    <!-- 🌸 2. SECTION BEAUTÉ                       -->
-    <!-- ========================================== -->
-    <div id="beaute-section" class="section">
-        <h2>🌸 Beauté au naturel</h2>
-
-        <div class="sub-nav">
-            <button class="sub-nav-btn active" onclick="showSubSection('cheveux', event)">💇 Cheveux</button>
-            <button class="sub-nav-btn" onclick="showSubSection('visage', event)">✨ Visage</button>
-        </div>
-
-        <!-- SS-SECTION : CHEVEUX -->
-        <div id="sub-cheveux" class="sub-section active">
-            <h3>💇 Masque Cheveux Nutritif (Banane & Olive)</h3>
-            <div class="ingredients-box">
-                <h4>Ingrédients :</h4>
-                <ul>
-                    <li>1 banane mûre</li>
-                    <li>5 c. à soupe d'huile d'olive</li>
-                    <li><i>Facultatif :</i> 1 c. à soupe d'huile de macadamia</li>
-                    <li><i>Facultatif :</i> 3 à 5 gouttes de glycérine végétale</li>
-                </ul>
-            </div>
-            <h4>Préparation & Application pas-à-pas :</h4>
-            <ul class="step-list">
-                <li class="step-item"><input type="checkbox"> <span>Écrasez grossièrement la banane à la fourchette puis ajoutez les huiles (ou passez le tout au mixeur pour un mélange bien lisse).</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Ajoutez la glycérine végétale si vous en utilisez, et mélangez à nouveau.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Appliquez sur vos cheveux mèche par mèche (ne pas appliquer sur les racines).</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Laissez poser au minimum 2h.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Rincez à l'eau tiède et procédez à votre shampooing habituel.</span></li>
-            </ul>
-            <div class="tip">
-                <strong>Conseils :</strong> Plus votre mélange sera lisse, plus il sera facile à rincer. Faites la pose sur des cheveux bien démêlés. Quantités idéales pour cheveux mi-longs.
-            </div>
-
-            <hr style="margin: 30px 0; border: none; border-top: 1px solid #eee;">
-
-            <h3>💧 Eau de Rinçage Brillance</h3>
-            <div class="ingredients-box">
-                <h4>Ingrédients :</h4>
-                <ul>
-                    <li>1 litre d'eau froide</li>
-                    <li>1 à 2 c. à soupe de vinaigre de cidre</li>
-                </ul>
-            </div>
-            <h4>Préparation & Application :</h4>
-            <ul class="step-list">
-                <li class="step-item"><input type="checkbox"> <span>Mélangez l'eau froide et le vinaigre de cidre.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Sur cheveux propres et mouillés (en sortant de la douche), rincez-vous les cheveux avec ce mélange en dernière eau de rinçage.</span></li>
-            </ul>
-            <div class="tip">
-                <strong>Info :</strong> Cette action permet de resserrer les écailles des cheveux et de garder l'hydratation. Les cheveux sont plus souples et brillants (l'odeur du vinaigre s'estompe rapidement).
-            </div>
-        </div>
-
-        <!-- SS-SECTION : VISAGE -->
-        <div id="sub-visage" class="sub-section">
-            <h3>✨ Masque Purifiant Visage Minute</h3>
-            <div class="ingredients-box">
-                <h4>Ingrédients :</h4>
-                <ul>
-                    <li>2 c. à soupe bien remplies de fromage blanc</li>
-                    <li>1 c. à café de charbon végétal</li>
-                </ul>
-            </div>
-            <h4>Préparation & Application :</h4>
-            <ul class="step-list">
-                <li class="step-item"><input type="checkbox"> <span>Versez le fromage blanc et le charbon végétal puis mélangez bien.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Appliquez au pinceau sur une peau propre et sèche.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Laissez poser entre 5 min (peau sensible) et 10 min.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Rincez à l'eau claire.</span></li>
-                <li class="step-item"><input type="checkbox"> <span>Appliquez une eau florale, laissez sécher, puis terminez par une huile sèche (argan, avocat...).</span></li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- ========================================== -->
-    <!-- 👶 3. SECTION BÉBÉ                         -->
-    <!-- ========================================== -->
-    <div id="bebe-section" class="section">
-        <h2>👶 Bébé au naturel</h2>
-
-        <h3>🍼 Liniment Douceur</h3>
-        <p><i>Pour un flacon vide de 500 ml</i></p>
-        <div class="ingredients-box">
-            <h4>Ingrédients :</h4>
-            <ul>
-                <li>250 ml d'eau de chaux</li>
-                <li>250 ml d'huile d'olive</li>
-                <li>3 c. à café de cire d'abeille</li>
-            </ul>
-        </div>
-        <h4>Préparation pas-à-pas :</h4>
-        <ul class="step-list">
-            <li class="step-item"><input type="checkbox"> <span>Dans un récipient, versez tous les ingrédients (eau de chaux, huile d'olive et cire d'abeille).</span></li>
-            <li class="step-item"><input type="checkbox"> <span>Mettez le récipient au bain-marie et faites fondre complètement la cire d'abeille.</span></li>
-            <li class="step-item"><input type="checkbox"> <span>Une fois la cire fondue, retirez du feu et fouettez énergiquement pendant 5 minutes.</span></li>
-            <li class="step-item"><input type="checkbox"> <span><b>Option rapide :</b> Placez un bol d'eau froide sous votre récipient et mélangez jusqu'au refroidissement.</span></li>
-            <li class="step-item"><input type="checkbox"> <span><b>Option classique :</b> Laissez refroidir à température ambiante en mélangeant de temps en temps jusqu'à épaississement.</span></li>
-            <li class="step-item"><input type="checkbox"> <span>Transvasez la préparation dans un flacon propre de 500 ml.</span></li>
-        </ul>
-    </div>
-
-    <!-- ========================================== -->
-    <!-- ⚙️ LOGIQUE JAVASCRIPT                      -->
-    <!-- ========================================== -->
-    <script>
-        // Gestion des sections principales (Ménage, Beauté, Bébé)
-        function showSection(sectionName) {
-            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
-
-            const targetSection = document.getElementById(sectionName + '-section');
-            if (targetSection) {
-                targetSection.classList.add('active');
-            }
+    <!-- SECTION MÉNAGE -->
+    <main>
+        <div id="maison-section" class="section active" role="tabpanel" aria-labelledby="btn-maison">
+            <h2>✨ Ménage au naturel</h2>
             
-            const activeBtn = document.getElementById('btn-' + sectionName);
-            if (activeBtn) {
-                activeBtn.classList.add('active');
+            <!-- Sous-navigation Ménage -->
+            <div class="sub-nav" role="tablist" aria-label="Catégories ménage">
+                <button class="sub-nav-btn active btn-maison-style" id="btn-sub-base" role="tab" aria-selected="true" aria-controls="sub-base" onclick="showSubSection('base', event)">📦 Produits de base</button>
+                <button class="sub-nav-btn btn-maison-style" id="btn-sub-linge" role="tab" aria-selected="false" aria-controls="sub-linge" onclick="showSubSection('linge', event)">🧺 Linge</button>
+                <button class="sub-nav-btn btn-maison-style" id="btn-sub-multiusages" role="tab" aria-selected="false" aria-controls="sub-multiusages" onclick="showSubSection('multiusages', event)">✨ Multi-usages</button>
+                <button class="sub-nav-btn btn-maison-style" id="btn-sub-vaisselle" role="tab" aria-selected="false" aria-controls="sub-vaisselle" onclick="showSubSection('vaisselle', event)">🍽️ Vaisselle</button>
+                <button class="sub-nav-btn btn-maison-style" id="btn-sub-toilettes" role="tab" aria-selected="false" aria-controls="sub-toilettes" onclick="showSubSection('toilettes', event)">🚽 WC & Bain</button>
+            </div>
+
+            <!-- Contenus Sous-sections Ménage -->
+            <div id="sub-base" class="sub-section active" role="tabpanel" aria-labelledby="btn-sub-base">
+                <h3>📦 Les indispensables du placard</h3>
+                <p>Découvrez les ingrédients de base écologiques et économiques pour tout nettoyer à la maison.</p>
+            </div>
+
+            <div id="sub-linge" class="sub-section" role="tabpanel" aria-labelledby="btn-sub-linge">
+                <h3>🧺 Lessive Maison</h3>
+                <div class="calculator">
+                    <label for="lessive-qty">Quantité souhaitée :</label>
+                    <select id="lessive-qty" onchange="updateLessive()">
+                        <option value="1">1 Litre</option>
+                        <option value="2" selected>2 Litres</option>
+                    </select>
+                </div>
+                <div class="ingredients-box">
+                    <h4>Ingrédients :</h4>
+                    <ul>
+                        <li><span id="ing-savon">5</span> c. à soupe de savon noir mou</li>
+                        <li><span id="ing-bicar">4</span> c. à soupe de bicarbonate de soude</li>
+                        <li><span id="ing-cristaux">2</span> c. à soupe de cristaux de soude</li>
+                        <li><span id="ing-eau-chaude">1</span> L d'eau chaude</li>
+                        <li><span id="ing-eau-amb">1</span> L d'eau à température ambiante</li>
+                    </ul>
+                </div>
+                <h4>Préparation pas-à-pas :</h4>
+                <ul class="step-list">
+                    <li class="step-item"><input type="checkbox"> <span>Faire fondre le savon noir dans l'eau chaude.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Une fois le mélange homogène, ajoutez le bicarbonate et les cristaux de soude, puis mélangez.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Ajoutez l'eau à température ambiante et mélangez à nouveau.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span>Laissez refroidir, votre lessive est prête à être versée dans votre bidon !</span></li>
+                </ul>
+            </div>
+
+            <div id="sub-multiusages" class="sub-section" role="tabpanel" aria-labelledby="btn-sub-multiusages">
+                <h3>✨ Spray Nettoyant Multi-usages</h3>
+                <p>Un spray simple pour nettoyer toutes vos surfaces en un coup de chiffon.</p>
+            </div>
+
+            <div id="sub-vaisselle" class="sub-section" role="tabpanel" aria-labelledby="btn-sub-vaisselle">
+                <h3>🍽️ Liquide Vaisselle Écologique</h3>
+                <p>Une recette dégraissante douce pour les mains et efficace sur la vaisselle.</p>
+            </div>
+
+            <div id="sub-toilettes" class="sub-section" role="tabpanel" aria-labelledby="btn-sub-toilettes">
+                <h3>🚽 Gel WC & Entretien Salle de Bain</h3>
+                <p>Nettoie, détartre et assainit vos sanitaires naturellement.</p>
+            </div>
+        </div>
+
+        <!-- SECTION BEAUTÉ -->
+        <div id="beaute-section" class="section" role="tabpanel" aria-labelledby="btn-beaute">
+            <h2>🌸 Beauté au naturel</h2>
+            <div class="sub-nav" role="tablist" aria-label="Catégories beauté">
+                <button class="sub-nav-btn active" id="btn-sub-visage" role="tab" aria-selected="true" aria-controls="sub-visage" onclick="showSubSection('visage', event)">💆‍♀️ Visage</button>
+                <button class="sub-nav-btn" id="btn-sub-cheveux" role="tab" aria-selected="false" aria-controls="sub-cheveux" onclick="showSubSection('cheveux', event)">💇‍♀️ Cheveux</button>
+                <button class="sub-nav-btn" id="btn-sub-corps" role="tab" aria-selected="false" aria-controls="sub-corps" onclick="showSubSection('corps', event)">🧼 Corps</button>
+            </div>
+
+            <div id="sub-visage" class="sub-section active" role="tabpanel" aria-labelledby="btn-sub-visage">
+                <h3>💆‍♀️ Soins du Visage</h3>
+                <p>Masques, sérums et nettoyants faits maison pour illuminer votre teint.</p>
+            </div>
+
+            <div id="sub-cheveux" class="sub-section" role="tabpanel" aria-labelledby="btn-sub-cheveux">
+                <h3>💇‍♀️ Soins des Cheveux</h3>
+                <p>Bains d'huile, masques hydratants et shampoings doux adaptés à vos besoins.</p>
+            </div>
+
+            <div id="sub-corps" class="sub-section" role="tabpanel" aria-labelledby="btn-sub-corps">
+                <h3>🧼 Soins du Corps</h3>
+                <p>Gommages, baumes nourrissants et déodorants naturels faciles à fabriquer.</p>
+            </div>
+        </div>
+
+        <!-- SECTION BÉBÉ -->
+        <div id="bebe-section" class="section" role="tabpanel" aria-labelledby="btn-bebe">
+            <h2>👶 Bébé au naturel</h2>
+            <p>Conseils doux et produits sains pour prendre soin de la peau délicate de bébé.</p>
+        </div>
+    </main>
+
+    <script>
+        // Gestion des sections principales
+        function showSection(sectionName) {
+            // Masquer et désactiver toutes les sections
+            document.querySelectorAll('.section').forEach(sec => {
+                sec.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-selected', 'false');
+            });
+
+            // Activer la section et le bouton cibles
+            const targetSection = document.getElementById(sectionName + '-section');
+            const targetBtn = document.getElementById('btn-' + sectionName);
+
+            if (targetSection && targetBtn) {
+                targetSection.classList.add('active');
+                targetBtn.classList.add('active');
+                targetBtn.setAttribute('aria-selected', 'true');
             }
         }
 
-        // Gestion des sous-sections (Onglets internes)
-        function showSubSection(subName, event) {
-            const parentSection = event.target.closest('.section');
+        // Gestion des sous-sections
+        function showSubSection(subSectionId, event) {
+            const currentSection = event.target.closest('.section');
+            
+            if (!currentSection) return;
 
-            parentSection.querySelectorAll('.sub-section').forEach(sub => sub.classList.remove('active'));
-            parentSection.querySelectorAll('.sub-nav-btn').forEach(btn => btn.classList.remove('active'));
+            // Masquer les sous-sections au sein de la section active uniquement
+            currentSection.querySelectorAll('.sub-section').forEach(sec => {
+                sec.classList.remove('active');
+            });
 
-            const targetSub = parentSection.querySelector('#sub-' + subName);
-            if (targetSub) {
-                targetSub.classList.add('active');
+            // Reinitialiser les boutons de la sous-nav active
+            currentSection.querySelectorAll('.sub-nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-selected', 'false');
+            });
+
+            // Afficher la sous-section et bouton cibles
+            const targetSubSection = currentSection.querySelector('#sub-' + subSectionId);
+            if (targetSubSection) {
+                targetSubSection.classList.add('active');
             }
+
             event.target.classList.add('active');
+            event.target.setAttribute('aria-selected', 'true');
         }
 
-        // Calculateur dynamique de quantité pour la Lessive
+        // Calculateur dynamique de quantites pour la lessive
         function updateLessive() {
             const qty = document.getElementById('lessive-qty').value;
             document.getElementById('ing-savon').innerText = 2.5 * qty;
@@ -417,10 +330,8 @@
             document.getElementById('ing-eau-amb').innerText = 0.5 * qty;
         }
 
-        // Initialisation des valeurs au chargement de la page
-        document.addEventListener('DOMContentLoaded', () => {
-            updateLessive();
-        });
+        // Initialiser la lessive pour 2L par defaut
+        updateLessive();
     </script>
 </body>
 </html>
