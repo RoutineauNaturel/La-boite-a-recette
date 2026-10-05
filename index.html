@@ -65,6 +65,23 @@
             opacity: 0.8;
         }
 
+        .instagram-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 10px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.95em;
+            font-weight: 600;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+
+        .instagram-link:hover {
+            opacity: 1;
+        }
+
         .nav-buttons {
             display: flex;
             gap: 10px;
@@ -276,6 +293,7 @@
         <button class="lang-switch" id="lang-btn" onclick="toggleLanguage()">🇬🇧 EN</button>
         <h1 data-i18n="title">Routine au naturel</h1>
         <p class="subtitle" data-i18n="subtitle">Votre quotidien plus sain, pas à pas</p>
+        <a class="instagram-link" href="https://www.instagram.com/routineaunaturel?stkn=MWt3bzY2eHZ5OGF0MQ==" target="_blank" rel="noopener noreferrer">📷 <span data-i18n="insta-handle">@routineaunaturel</span></a>
     </header>
 
     <div class="nav-buttons">
@@ -877,6 +895,7 @@
             fr: {
                 "title": "Routine au naturel",
                 "subtitle": "Votre quotidien plus sain, pas à pas",
+                "insta-handle": "@routineaunaturel",
                 "nav-pres": "Présentation",
                 "nav-maison": "Ménage",
                 "nav-beaute": "Beauté",
@@ -1139,6 +1158,7 @@
             en: {
                 "title": "Natural Routine",
                 "subtitle": "Your healthier daily routine, step by step",
+                "insta-handle": "@routineaunaturel",
                 "nav-pres": "Introduction",
                 "nav-maison": "Cleaning",
                 "nav-beaute": "Beauty",
@@ -1456,3 +1476,4 @@
     </script>
 </body>
 </html>
+
