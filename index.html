@@ -398,9 +398,17 @@
 
         <div id="maison-recettes-subsection" class="sub-section">
             <h3 data-i18n="m-rec-title">🧪 Vos Recettes Maison</h3>
+
+            <div class="sub-nav cat-filter-nav">
+                <button class="sub-nav-btn active btn-maison-style" onclick="filterMaisonCategory('all', event)" data-i18n="m-cat-filter-all">✨ Toutes</button>
+                <button class="sub-nav-btn btn-maison-style" onclick="filterMaisonCategory('vaisselle', event)" data-i18n="m-cat-filter-vaisselle">🍽️ Vaisselle</button>
+                <button class="sub-nav-btn btn-maison-style" onclick="filterMaisonCategory('linge', event)" data-i18n="m-cat-filter-linge">🧺 Linge</button>
+                <button class="sub-nav-btn btn-maison-style" onclick="filterMaisonCategory('multi', event)" data-i18n="m-cat-filter-multi">✨ Multi-usages</button>
+                <button class="sub-nav-btn btn-maison-style" onclick="filterMaisonCategory('wc', event)" data-i18n="m-cat-filter-wc">🚽 WC</button>
+            </div>
             
             <!-- VAISSELLE -->
-            <div class="recipe-group">
+            <div class="recipe-group" data-category="vaisselle">
                 <h4 data-i18n="cat-vaisselle">🍽️ Catégorie : Vaisselle</h4>
                 
                 <h5 data-i18n="r-lvm-title">🧼 Liquide Vaisselle Main Express</h5>
@@ -446,7 +454,7 @@
                         <li data-i18n="r-tlv-ing1">4 c. à soupe de cristaux de soude</li>
                         <li data-i18n="r-tlv-ing2">4 c. à soupe d'acide citrique</li>
                         <li data-i18n="r-tlv-ing3">3 c. à soupe de percarbonate de soude</li>
-                        <li data-i18n="r-tlv-ing4">1 c. à soupe d'eau</li>
+                        <li data-i18n="r-tlv-ing4">1 c. à soupe de vinaigre d'eau</li>
                  </ul>
         	</div>
        	 	<h4 data-i18n="realisation">Réalisation :</h4>
@@ -469,7 +477,7 @@
             <hr class="recipe-divider" style="border-top-style: solid; border-top-width: 2px;">
 
             <!-- LINGE -->
-            <div class="recipe-group">
+            <div class="recipe-group" data-category="linge">
                 <h4 data-i18n="cat-linge">🧺 Catégorie : Linge</h4>
                 
                 <h5 data-i18n="r-lessive-title">Lessive Maison</h5>
@@ -485,6 +493,7 @@
                     <ul>
                         <li><span id="ing-savon">5</span> <span data-i18n="r-les-ing1">c. à soupe de savon noir mou</span></li>
                         <li><span id="ing-bicar">4</span> <span data-i18n="r-les-ing2">c. à soupe de bicarbonate de soude</span></li>
+                        <li><span id="ing-cristaux">2</span> <span data-i18n="r-les-ing3">c. à soupe de cristaux de soude</span></li>
                         <li><span id="ing-eau-chaude">1</span> <span data-i18n="r-les-ing4">L d'eau chaude</span></li>
                         <li><span id="ing-eau-amb">1</span> <span data-i18n="r-les-ing5">L d'eau à température ambiante</span></li>
                     </ul>
@@ -492,7 +501,7 @@
                 <h5 data-i18n="prep-step">Préparation pas-à-pas :</h5>
                 <ul class="step-list">
                     <li class="step-item"><input type="checkbox"> <span data-i18n="r-les-p1">Faire fondre le savon noir dans l'eau chaude.</span></li>
-                    <li class="step-item"><input type="checkbox"> <span data-i18n="r-les-p2">Une fois le mélange homogène, ajoutez le bicarbonate de soude, puis mélangez.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span data-i18n="r-les-p2">Une fois le mélange homogène, ajoutez le bicarbonate et les cristaux de soude, puis mélangez.</span></li>
                     <li class="step-item"><input type="checkbox"> <span data-i18n="r-les-p3">Ajoutez l'eau à température ambiante et mélangez à nouveau.</span></li>
                     <li class="step-item"><input type="checkbox"> <span data-i18n="r-les-p4">Laissez refroidir, votre lessive est prête à être versée dans votre bidon !</span></li>
                 </ul>
@@ -523,7 +532,7 @@
             <hr class="recipe-divider" style="border-top-style: solid; border-top-width: 2px;">
 
             <!-- MULTI-USAGES -->
-            <div class="recipe-group">
+            <div class="recipe-group" data-category="multi">
                 <h4 data-i18n="cat-multi">✨ Catégorie : Multi-usages</h4>
                 
                 <h5 data-i18n="r-vit-title">🪟 Nettoyant surface vitrée</h5>
@@ -617,7 +626,7 @@
             <hr class="recipe-divider" style="border-top-style: solid; border-top-width: 2px;">
 
             <!-- WC -->
-            <div class="recipe-group">
+            <div class="recipe-group" data-category="wc">
                 <h4 data-i18n="cat-wc">🚽 Catégorie : WC</h4>
                 
                 <h5 data-i18n="r-gwc-title">Gel WC</h5>
@@ -674,6 +683,7 @@
         
         <div class="sub-nav">
             <button class="sub-nav-btn active btn-beaute-style" onclick="showSubSection('beaute', 'intro', event)" data-i18n="b-nav-intro">✨ Introduction</button>
+            <button class="sub-nav-btn btn-beaute-style" onclick="showSubSection('beaute', 'conseils', event)" data-i18n="b-nav-tips">💆‍♀️ Conseils</button>
             <button class="sub-nav-btn btn-beaute-style" onclick="showSubSection('beaute', 'recettes', event)" data-i18n="b-nav-recipes">🧪 Recettes Beauté</button>
         </div>
 
@@ -681,10 +691,79 @@
             <p data-i18n="b-intro-p">Prendre soin de soi et rayonner sans dépenser des millions, grâce à des ingrédients simples que l'on a tous dans nos placards.</p>
         </div>
 
+        <div id="beaute-conseils-subsection" class="sub-section">
+            <h3 data-i18n="b-tips-title">🧖‍♀️ Conseils pour prendre soin de sa peau naturellement</h3>
+
+            <h4 data-i18n="b-tips-visage-title">🪞 Beauté visage</h4>
+
+            <div class="ingredients-box">
+                <h4 data-i18n="b-tips-weekly-title">Une fois par semaine :</h4>
+                <ul class="step-list">
+                    <li class="step-item"><input type="checkbox"> <span data-i18n="b-tips-weekly-1">Gommage</span></li>
+                    <li class="step-item"><input type="checkbox"> <span data-i18n="b-tips-weekly-2">Masque</span></li>
+                </ul>
+            </div>
+
+            <div class="ingredients-box">
+                <h4 data-i18n="b-tips-am-title">☀️ Tous les jours - Matin :</h4>
+                <ul class="step-list">
+                    <li class="step-item"><input type="checkbox"> <span data-i18n="b-tips-am-1">Nettoyant doux</span></li>
+                    <li class="step-item"><input type="checkbox"> <span data-i18n="b-tips-am-2">Eau florale (optionnel)</span></li>
+                    <li class="step-item"><input type="checkbox"> <span data-i18n="b-tips-am-3">Sérum ou Huile</span></li>
+                    <li class="step-item"><input type="checkbox"> <span data-i18n="b-tips-am-4">Crème visage selon le type de peau, avec le moins d'ingrédients issus de la pétrochimie</span></li>
+                </ul>
+            </div>
+
+            <div class="ingredients-box">
+                <h4 data-i18n="b-tips-pm-title">🌙 Tous les jours - Soir :</h4>
+                <ul class="step-list">
+                    <li class="step-item"><input type="checkbox"> <span data-i18n="b-tips-pm-1">Nettoyant doux</span></li>
+                    <li class="step-item"><input type="checkbox"> <span data-i18n="b-tips-pm-2">Sérum ou Huile</span></li>
+                    <li class="step-item"><input type="checkbox"> <span data-i18n="b-tips-pm-3">Crème visage selon le type de peau, avec le moins d'ingrédients issus de la pétrochimie</span></li>
+                </ul>
+            </div>
+
+            <p data-i18n="b-tips-clean-p">🧼 Le nettoyage de la peau doit être réalisé matin et soir avec un produit doux. Cela peut être un pain de toilette surgras ou tout simplement du lait de toilette que l'on fait mousser.</p>
+
+            <p data-i18n="b-tips-serum-p">🧴 Le sérum est aussi important : selon vos besoins, choisissez un sérum hydratant le matin, ou une huile sèche et un sérum plus huileux le soir. Même conseil pour la crème visage.</p>
+
+            <hr class="recipe-divider">
+
+            <h4 data-i18n="b-tips-ingr-title">🔍 Comment reconnaître les ingrédients problématiques ?</h4>
+            <p data-i18n="b-tips-ingr-intro">Plusieurs possibilités :</p>
+
+            <div class="ingredients-box">
+                <h4 data-i18n="b-tips-yuka-title">1️⃣ L'application Yuka</h4>
+                <p data-i18n="b-tips-yuka-p">📱 Scannez le produit avec l'application Yuka. Elle vous donnera une note sur 100, ainsi que les allergènes et les substances toxiques, nocives ou perturbateurs endocriniens.</p>
+            </div>
+
+            <div class="ingredients-box">
+                <h4 data-i18n="b-tips-inci-title">2️⃣ Le site "La Vérité sur les Cosmétiques"</h4>
+                <p data-i18n="b-tips-inci-p">🌐 Si vous ne trouvez pas votre produit sur Yuka et/ou que vous voulez aller plus loin, utilisez <a href="https://laveritesurlescosmetiques.com/recherche-inci/" target="_blank" rel="noopener noreferrer">ce site</a> pour rechercher par ingrédient. Idéal pour les personnes qui savent déjà bien décrypter les étiquettes et qui ont des doutes sur un ingrédient.</p>
+            </div>
+
+            <hr class="recipe-divider">
+
+            <h4 data-i18n="b-tips-appli-title">💆‍♀️ Comment appliquer les soins ?</h4>
+            <div class="tip" data-i18n="b-tips-appli-p">
+                ⬆️ On applique toujours les crèmes, sérums... du bas vers le haut, en partant de l'extrémité du nez et en remontant vers les oreilles. Pour le cou, également de bas en haut.
+            </div>
+        </div>
+
         <div id="beaute-recettes-subsection" class="sub-section">
             <h3 data-i18n="b-rec-title">🧪 Vos Recettes Cosmétiques Maison</h3>
+
+            <div class="sub-nav cat-filter-nav">
+                <button class="sub-nav-btn active btn-beaute-style" onclick="filterBeauteCategory('all', event)" data-i18n="cat-filter-all">✨ Toutes</button>
+                <button class="sub-nav-btn btn-beaute-style" onclick="filterBeauteCategory('visage', event)" data-i18n="cat-filter-visage">🪞 Visage</button>
+                <button class="sub-nav-btn btn-beaute-style" onclick="filterBeauteCategory('cheveux', event)" data-i18n="cat-filter-cheveux">💇‍♀️ Cheveux</button>
+                <button class="sub-nav-btn btn-beaute-style" onclick="filterBeauteCategory('corps', event)" data-i18n="cat-filter-corps">🧴 Corps</button>
+            </div>
             
-            <div class="recipe-group">
+            <!-- VISAGE -->
+            <div class="recipe-group" data-category="visage">
+                <h4 data-i18n="cat-visage">🪞 Catégorie : Visage</h4>
+
                 <h5 data-i18n="r-masq-title">🖤 Masque purifiant visage minute</h5>
                 <div class="ingredients-box">
                     <h4 data-i18n="ingredients">Ingrédients :</h4>
@@ -704,11 +783,33 @@
                 <div class="tip" data-i18n="r-masq-tip">
                     <strong>Conseil de pose :</strong> Laissez poser entre 5 minutes (si vous avez la peau sensible) et 10 minutes.
                 </div>
+
+                <hr class="recipe-divider">
+
+                <h5 data-i18n="r-hyd-title">💧 Masque Visage hydratant</h5>
+                <div class="ingredients-box">
+                    <h4 data-i18n="ingredients">Ingrédients :</h4>
+                    <ul>
+                        <li data-i18n="r-hyd-ing1">1 c. à soupe de fromage blanc</li>
+                        <li data-i18n="r-hyd-ing2">1 c. à café de miel</li>
+                    </ul>
+                </div>
+                <h5 data-i18n="prep-app">Préparation & Application :</h5>
+                <ul class="step-list">
+                    <li class="step-item"><input type="checkbox"> <span data-i18n="r-hyd-p1">Mélangez les deux ingrédients.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span data-i18n="r-hyd-p2">Appliquez à l'aide d'un pinceau sur un visage propre.</span></li>
+                </ul>
+                <div class="tip" data-i18n="r-hyd-tip">
+                    <strong>Conseil :</strong> Laissez poser 10 à 15 min puis rincez.
+                </div>
             </div>
 
-            <hr class="recipe-divider">
+            <hr class="recipe-divider" style="border-top-style: solid; border-top-width: 2px;">
 
-            <div class="recipe-group">
+            <!-- CHEVEUX -->
+            <div class="recipe-group" data-category="cheveux">
+                <h4 data-i18n="cat-cheveux">💇‍♀️ Catégorie : Cheveux</h4>
+
                 <h5 data-i18n="r-eau-title">🍏 Eau de rinçage</h5>
                 <div class="ingredients-box">
                     <h4 data-i18n="ingredients">Ingrédients :</h4>
@@ -726,11 +827,9 @@
                     <strong>Le saviez-vous ?</strong> Cette action permet de resserrer les écailles du cheveu et de garder l'hydratation. Les cheveux deviennent plus souples et brillants.
                 </div>
                 <p style="font-size: 0.9em; font-style: italic; color: #666; margin-top: 10px;" data-i18n="r-eau-note">ℹ️ Info : L'odeur du vinaigre de cidre s'estompe rapidement.</p>
-            </div>
 
-            <hr class="recipe-divider">
+                <hr class="recipe-divider">
 
-            <div class="recipe-group">
                 <h5 data-i18n="r-che-title">🍌 Masque cheveux Banane & Olive</h5>
                 <div class="ingredients-box">
                     <h4 data-i18n="ingredients">Ingrédients :</h4>
@@ -755,32 +854,9 @@
                 <div class="tip" data-i18n="r-che-tip">
                     <strong>Conseil de pose :</strong> Laissez poser au moins 2h pour nourrir en profondeur.
                 </div>
-            </div>
 
-            <hr class="recipe-divider">
+                <hr class="recipe-divider">
 
-            <div class="recipe-group">
-                <h5 data-i18n="r-hyd-title">💧 Masque Visage hydratant</h5>
-                <div class="ingredients-box">
-                    <h4 data-i18n="ingredients">Ingrédients :</h4>
-                    <ul>
-                        <li data-i18n="r-hyd-ing1">1 c. à soupe de fromage blanc</li>
-                        <li data-i18n="r-hyd-ing2">1 c. à café de miel</li>
-                    </ul>
-                </div>
-                <h5 data-i18n="prep-app">Préparation & Application :</h5>
-                <ul class="step-list">
-                    <li class="step-item"><input type="checkbox"> <span data-i18n="r-hyd-p1">Mélangez les deux ingrédients.</span></li>
-                    <li class="step-item"><input type="checkbox"> <span data-i18n="r-hyd-p2">Appliquez à l'aide d'un pinceau sur un visage propre.</span></li>
-                </ul>
-                <div class="tip" data-i18n="r-hyd-tip">
-                    <strong>Conseil :</strong> Laissez poser 10 à 15 min puis rincez.
-                </div>
-            </div>
-
-            <hr class="recipe-divider">
-
-            <div class="recipe-group">
                 <h5 data-i18n="r-nut-title">🥑 Masque nutrition</h5>
                 <div class="ingredients-box">
                     <h4 data-i18n="ingredients">Ingrédients :</h4>
@@ -797,6 +873,16 @@
                 </ul>
                 <div class="tip" data-i18n="r-nut-tip">
                     <strong>Conseil :</strong> Laissez poser 30 min minimum puis rincez. Appliquez ensuite votre shampooing habituel.
+                </div>
+            </div>
+
+            <hr class="recipe-divider" style="border-top-style: solid; border-top-width: 2px;">
+
+            <!-- CORPS -->
+            <div class="recipe-group" data-category="corps">
+                <h4 data-i18n="cat-corps">🧴 Catégorie : Corps</h4>
+                <div class="tip" data-i18n="cat-corps-soon">
+                    ⏳ De nouvelles recettes pour le corps arrivent bientôt !
                 </div>
             </div>
         </div>
@@ -947,6 +1033,11 @@
                 "lv-s2-i6": "Vérifiez et ajoutez si nécessaire du sel régénérant.",
                 "lv-s2-i7": "Lancez un cycle de rinçage.",
                 "m-rec-title": "🧪 Vos Recettes Maison",
+                "m-cat-filter-all": "✨ Toutes",
+                "m-cat-filter-vaisselle": "🍽️ Vaisselle",
+                "m-cat-filter-linge": "🧺 Linge",
+                "m-cat-filter-multi": "✨ Multi-usages",
+                "m-cat-filter-wc": "🚽 WC",
                 "cat-vaisselle": "🍽️ Catégorie : Vaisselle",
                 "ingredients": "Ingrédients :",
                 "preparation": "Préparation :",
@@ -1075,7 +1166,40 @@
                 "b-main-title": "🌸 Beauté au naturel",
                 "b-nav-intro": "✨ Introduction",
                 "b-nav-recipes": "🧪 Recettes Beauté",
+                "b-nav-tips": "💆‍♀️ Conseils",
+                "cat-visage": "🪞 Catégorie : Visage",
+                "cat-cheveux": "💇‍♀️ Catégorie : Cheveux",
+                "cat-corps": "🧴 Catégorie : Corps",
+                "cat-corps-soon": "⏳ De nouvelles recettes pour le corps arrivent bientôt !",
+                "cat-filter-all": "✨ Toutes",
+                "cat-filter-visage": "🪞 Visage",
+                "cat-filter-cheveux": "💇‍♀️ Cheveux",
+                "cat-filter-corps": "🧴 Corps",
                 "b-intro-p": "Prendre soin de soi et rayonner sans dépenser des millions, grâce à des ingrédients simples que l'on a tous dans nos placards.",
+                "b-tips-title": "🧖‍♀️ Conseils pour prendre soin de sa peau naturellement",
+                "b-tips-visage-title": "🪞 Beauté visage",
+                "b-tips-weekly-title": "Une fois par semaine :",
+                "b-tips-weekly-1": "Gommage",
+                "b-tips-weekly-2": "Masque",
+                "b-tips-am-title": "☀️ Tous les jours - Matin :",
+                "b-tips-am-1": "Nettoyant doux",
+                "b-tips-am-2": "Eau florale (optionnel)",
+                "b-tips-am-3": "Sérum ou Huile",
+                "b-tips-am-4": "Crème visage selon le type de peau, avec le moins d'ingrédients issus de la pétrochimie",
+                "b-tips-pm-title": "🌙 Tous les jours - Soir :",
+                "b-tips-pm-1": "Nettoyant doux",
+                "b-tips-pm-2": "Sérum ou Huile",
+                "b-tips-pm-3": "Crème visage selon le type de peau, avec le moins d'ingrédients issus de la pétrochimie",
+                "b-tips-clean-p": "🧼 Le nettoyage de la peau doit être réalisé matin et soir avec un produit doux. Cela peut être un pain de toilette surgras ou tout simplement du lait de toilette que l'on fait mousser.",
+                "b-tips-serum-p": "🧴 Le sérum est aussi important : selon vos besoins, choisissez un sérum hydratant le matin, ou une huile sèche et un sérum plus huileux le soir. Même conseil pour la crème visage.",
+                "b-tips-ingr-title": "🔍 Comment reconnaître les ingrédients problématiques ?",
+                "b-tips-ingr-intro": "Plusieurs possibilités :",
+                "b-tips-yuka-title": "1️⃣ L'application Yuka",
+                "b-tips-yuka-p": "📱 Scannez le produit avec l'application Yuka. Elle vous donnera une note sur 100, ainsi que les allergènes et les substances toxiques, nocives ou perturbateurs endocriniens.",
+                "b-tips-inci-title": "2️⃣ Le site \"La Vérité sur les Cosmétiques\"",
+                "b-tips-inci-p": "🌐 Si vous ne trouvez pas votre produit sur Yuka et/ou que vous voulez aller plus loin, utilisez <a href=\"https://laveritesurlescosmetiques.com/recherche-inci/\" target=\"_blank\" rel=\"noopener noreferrer\">ce site</a> pour rechercher par ingrédient. Idéal pour les personnes qui savent déjà bien décrypter les étiquettes et qui ont des doutes sur un ingrédient.",
+                "b-tips-appli-title": "💆‍♀️ Comment appliquer les soins ?",
+                "b-tips-appli-p": "⬆️ On applique toujours les crèmes, sérums... du bas vers le haut, en partant de l'extrémité du nez et en remontant vers les oreilles. Pour le cou, également de bas en haut.",
                 "b-rec-title": "🧪 Vos Recettes Cosmétiques Maison",
                 "r-masq-title": "🖤 Masque purifiant visage minute",
                 "r-masq-ing1": "2 c. à soupe bien remplies de fromage blanc",
@@ -1210,6 +1334,11 @@
                 "lv-s2-i6": "Check and add dishwasher salt if necessary.",
                 "lv-s2-i7": "Run an empty hot rinse cycle.",
                 "m-rec-title": "🧪 Your Homemade Recipes",
+                "m-cat-filter-all": "✨ All",
+                "m-cat-filter-vaisselle": "🍽️ Dishes",
+                "m-cat-filter-linge": "🧺 Laundry",
+                "m-cat-filter-multi": "✨ Multi-purpose",
+                "m-cat-filter-wc": "🚽 Toilet",
                 "cat-vaisselle": "🍽️ Category: Dishwashing",
                 "ingredients": "Ingredients:",
                 "preparation": "Preparation:",
@@ -1337,7 +1466,40 @@
                 "b-main-title": "🌸 Natural Beauty",
                 "b-nav-intro": "✨ Introduction",
                 "b-nav-recipes": "🧪 Beauty Recipes",
+                "b-nav-tips": "💆‍♀️ Tips",
+                "cat-visage": "🪞 Category: Face",
+                "cat-cheveux": "💇‍♀️ Category: Hair",
+                "cat-corps": "🧴 Category: Body",
+                "cat-corps-soon": "⏳ New body-care recipes coming soon!",
+                "cat-filter-all": "✨ All",
+                "cat-filter-visage": "🪞 Face",
+                "cat-filter-cheveux": "💇‍♀️ Hair",
+                "cat-filter-corps": "🧴 Body",
                 "b-intro-p": "Taking care of yourself and glowing without spending millions, thanks to simple ingredients we all have in our cupboards.",
+                "b-tips-title": "🧖‍♀️ Tips for taking care of your skin naturally",
+                "b-tips-visage-title": "🪞 Face care",
+                "b-tips-weekly-title": "Once a week:",
+                "b-tips-weekly-1": "Scrub",
+                "b-tips-weekly-2": "Mask",
+                "b-tips-am-title": "☀️ Every day - Morning:",
+                "b-tips-am-1": "Gentle cleanser",
+                "b-tips-am-2": "Floral water (optional)",
+                "b-tips-am-3": "Serum or Oil",
+                "b-tips-am-4": "Face cream suited to your skin type, with as few petrochemical ingredients as possible",
+                "b-tips-pm-title": "🌙 Every day - Evening:",
+                "b-tips-pm-1": "Gentle cleanser",
+                "b-tips-pm-2": "Serum or Oil",
+                "b-tips-pm-3": "Face cream suited to your skin type, with as few petrochemical ingredients as possible",
+                "b-tips-clean-p": "🧼 Skin cleansing should be done morning and evening with a gentle product. This can be a superfatted soap bar or simply a cleansing milk worked into a lather.",
+                "b-tips-serum-p": "🧴 Serum matters too: depending on your needs, choose a hydrating serum in the morning, or a dry oil and a richer, oilier serum in the evening. Same advice for face cream.",
+                "b-tips-ingr-title": "🔍 How to spot problematic ingredients?",
+                "b-tips-ingr-intro": "Several options:",
+                "b-tips-yuka-title": "1️⃣ The Yuka app",
+                "b-tips-yuka-p": "📱 Scan the product with the Yuka app. It will give it a score out of 100, along with allergens and toxic, harmful or endocrine-disrupting substances.",
+                "b-tips-inci-title": "2️⃣ The \"La Vérité sur les Cosmétiques\" website",
+                "b-tips-inci-p": "🌐 If you can't find your product on Yuka and/or want to go further, use <a href=\"https://laveritesurlescosmetiques.com/recherche-inci/\" target=\"_blank\" rel=\"noopener noreferrer\">this site</a> to search by ingredient. Ideal for those who already know how to read labels and have doubts about a specific ingredient.",
+                "b-tips-appli-title": "💆‍♀️ How to apply your skincare?",
+                "b-tips-appli-p": "⬆️ Always apply creams, serums... from the bottom up, starting from the tip of the nose and moving up towards the ears. For the neck, also apply from bottom to top.",
                 "b-rec-title": "🧪 Your Homemade Cosmetic Recipes",
                 "r-masq-title": "🖤 Instant Purifying Face Mask",
                 "r-masq-ing1": "2 full tbsp plain cottage cheese or Greek yogurt",
@@ -1459,6 +1621,42 @@
             if (targetSub) targetSub.classList.add('active');
         }
 
+        function filterMaisonCategory(cat, event) {
+            document.querySelectorAll('#maison-recettes-subsection .recipe-group[data-category]').forEach(group => {
+                group.style.display = (cat === 'all' || group.getAttribute('data-category') === cat) ? '' : 'none';
+            });
+            document.querySelectorAll('#maison-recettes-subsection hr[style*="2px"]').forEach(hr => {
+                hr.style.display = (cat === 'all') ? '' : 'none';
+            });
+            if (event && event.target) {
+                const navContainer = event.target.closest('.cat-filter-nav');
+                if (navContainer) {
+                    navContainer.querySelectorAll('.sub-nav-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                }
+                event.target.classList.add('active');
+            }
+        }
+
+        function filterBeauteCategory(cat, event) {
+            document.querySelectorAll('#beaute-recettes-subsection .recipe-group[data-category]').forEach(group => {
+                group.style.display = (cat === 'all' || group.getAttribute('data-category') === cat) ? '' : 'none';
+            });
+            document.querySelectorAll('#beaute-recettes-subsection hr[style*="2px"]').forEach(hr => {
+                hr.style.display = (cat === 'all') ? '' : 'none';
+            });
+            if (event && event.target) {
+                const navContainer = event.target.closest('.cat-filter-nav');
+                if (navContainer) {
+                    navContainer.querySelectorAll('.sub-nav-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                }
+                event.target.classList.add('active');
+            }
+        }
+
         function updateLessive() {
             const qty = parseInt(document.getElementById('lessive-qty').value);
             document.getElementById('ing-savon').innerText = qty === 1 ? '2.5' : '5';
@@ -1475,4 +1673,3 @@
     </script>
 </body>
 </html>
-
