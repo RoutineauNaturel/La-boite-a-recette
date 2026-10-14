@@ -683,6 +683,7 @@
         
         <div class="sub-nav">
             <button class="sub-nav-btn active btn-beaute-style" onclick="showSubSection('beaute', 'intro', event)" data-i18n="b-nav-intro">✨ Introduction</button>
+            <button class="sub-nav-btn btn-beaute-style" onclick="showSubSection('beaute', 'base', event)" data-i18n="b-nav-base">📦 Produits de base</button>
             <button class="sub-nav-btn btn-beaute-style" onclick="showSubSection('beaute', 'conseils', event)" data-i18n="b-nav-tips">💆‍♀️ Conseils</button>
             <button class="sub-nav-btn btn-beaute-style" onclick="showSubSection('beaute', 'recettes', event)" data-i18n="b-nav-recipes">🧪 Recettes Beauté</button>
         </div>
@@ -750,6 +751,23 @@
             </div>
         </div>
 
+        <div id="beaute-base-subsection" class="sub-section">
+            <h3 data-i18n="b-base-title">📦 Vos Produits de Base</h3>
+            <div class="ingredients-box">
+                <h4 data-i18n="b-base-subtitle">Ingrédients indispensables :</h4>
+                <ul class="step-list">
+                    <li class="step-item"><input type="checkbox"> <span data-i18n="ing-coco-pure">Huile de coco</span></li>
+                    <li class="step-item"><input type="checkbox"> <span data-i18n="ing-cire-pure">Cire d'abeille</span></li>
+                    <li class="step-item"><input type="checkbox"> <span data-i18n="ing-charbon-pure">Charbon végétal</span></li>
+                    <li class="step-item"><input type="checkbox"> <span data-i18n="ing-ricin-pure">Huile de ricin</span></li>
+                </ul>
+            </div>
+            <p data-i18n="b-base-note">💡 <i>Pas besoin de plus, surtout si vous débutez.</i></p>
+            <div class="tip" data-i18n="b-base-tip">
+                ⏳ Un guide complet pour vous aider à mettre en place une routine beauté naturelle simple et rapide arrive bientôt.
+            </div>
+        </div>
+
         <div id="beaute-recettes-subsection" class="sub-section">
             <h3 data-i18n="b-rec-title">🧪 Vos Recettes Cosmétiques Maison</h3>
 
@@ -801,6 +819,57 @@
                 </ul>
                 <div class="tip" data-i18n="r-hyd-tip">
                     <strong>Conseil :</strong> Laissez poser 10 à 15 min puis rincez.
+                </div>
+
+                <hr class="recipe-divider">
+
+                <h5 data-i18n="r-baume-title">💄 Baume à lèvres express</h5>
+                <div class="ingredients-box">
+                    <h4 data-i18n="mat-ing">Matériel & Ingrédients :</h4>
+                    <ul>
+                        <li data-i18n="r-baume-ing1">5 ml d'huile de coco</li>
+                        <li data-i18n="r-baume-ing2">1 petite cuillère à café de cire d'abeille</li>
+                        <li data-i18n="r-baume-mat1">1 stick à lèvres vide</li>
+                    </ul>
+                </div>
+                <h5 data-i18n="prep-app">Préparation & Application :</h5>
+                <ul class="step-list">
+                    <li class="step-item"><input type="checkbox"> <span data-i18n="r-baume-p1">Mettez l'huile de coco et la cire d'abeille dans un bol supportant la chaleur.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span data-i18n="r-baume-p2">Placez le bol au bain-marie.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span data-i18n="r-baume-p3">Laissez la cire complètement fondre.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span data-i18n="r-baume-p4">Retirez du feu.</span></li>
+                    <li class="step-item"><input type="checkbox"> <span data-i18n="r-baume-p5">Transvasez immédiatement la préparation dans le stick à lèvres.</span></li>
+                </ul>
+                <div class="tip" data-i18n="r-baume-tip">
+                    Voilà, votre baume est prêt à être utilisé !
+                </div>
+
+                <hr class="recipe-divider">
+
+                <h5 data-i18n="r-masc-title">👁️ Mascara renforçateur cils / sourcils</h5>
+                <div class="ingredients-box">
+                    <h4 data-i18n="mat-ing">Matériel & Ingrédients :</h4>
+                    <p data-i18n="r-masc-option-label"><strong>Pour un tube de mascara :</strong></p>
+                    <ul>
+                        <li data-i18n="r-masc-ing1">10 ml d'huile de ricin</li>
+                    </ul>
+                    <p data-i18n="ou"><strong>Ou :</strong></p>
+                    <ul>
+                        <li data-i18n="r-masc-ing2">6 ml d'huile de ricin</li>
+                        <li data-i18n="r-masc-ing3">2 ml d'huile d'avocat</li>
+                        <li data-i18n="r-masc-ing4">2 ml d'huile de jojoba</li>
+                    </ul>
+                    <h4 style="margin-top: 10px; margin-bottom: 5px;" data-i18n="materiel">Matériel :</h4>
+                    <ul>
+                        <li data-i18n="r-masc-mat1">1 tube de mascara vide</li>
+                    </ul>
+                </div>
+                <h5 data-i18n="prep-app">Préparation & Application :</h5>
+                <ul class="step-list">
+                    <li class="step-item"><input type="checkbox"> <span data-i18n="r-masc-p1">Remplissez le flacon avec l'huile de ricin, ou avec l'huile de ricin et les deux autres huiles.</span></li>
+                </ul>
+                <div class="tip" data-i18n="r-masc-tip">
+                    <strong>Rappel :</strong> l'hygiène est importante quand on fabrique ces soins maison. N'oubliez pas de désinfecter votre matériel avec de l'alcool à 70° et d'avoir les mains bien propres.
                 </div>
             </div>
 
@@ -1166,7 +1235,16 @@
                 "b-main-title": "🌸 Beauté au naturel",
                 "b-nav-intro": "✨ Introduction",
                 "b-nav-recipes": "🧪 Recettes Beauté",
+                "b-nav-base": "📦 Produits de base",
                 "b-nav-tips": "💆‍♀️ Conseils",
+                "b-base-title": "📦 Vos Produits de Base",
+                "b-base-subtitle": "Ingrédients indispensables :",
+                "ing-coco-pure": "Huile de coco",
+                "ing-cire-pure": "Cire d'abeille",
+                "ing-charbon-pure": "Charbon végétal",
+                "ing-ricin-pure": "Huile de ricin",
+                "b-base-note": "💡 <i>Pas besoin de plus, surtout si vous débutez.</i>",
+                "b-base-tip": "⏳ Un guide complet pour vous aider à mettre en place une routine beauté naturelle simple et rapide arrive bientôt.",
                 "cat-visage": "🪞 Catégorie : Visage",
                 "cat-cheveux": "💇‍♀️ Catégorie : Cheveux",
                 "cat-corps": "🧴 Catégorie : Corps",
@@ -1234,6 +1312,27 @@
                 "r-hyd-p1": "Mélangez les deux ingrédients.",
                 "r-hyd-p2": "Appliquez à l'aide d'un pinceau sur un visage propre.",
                 "r-hyd-tip": "<strong>Conseil :</strong> Laissez poser 10 à 15 min puis rincez.",
+                "r-baume-title": "💄 Baume à lèvres express",
+                "r-baume-ing1": "5 ml d'huile de coco",
+                "r-baume-ing2": "1 petite cuillère à café de cire d'abeille",
+                "r-baume-mat1": "1 stick à lèvres vide",
+                "r-baume-p1": "Mettez l'huile de coco et la cire d'abeille dans un bol supportant la chaleur.",
+                "r-baume-p2": "Placez le bol au bain-marie.",
+                "r-baume-p3": "Laissez la cire complètement fondre.",
+                "r-baume-p4": "Retirez du feu.",
+                "r-baume-p5": "Transvasez immédiatement la préparation dans le stick à lèvres.",
+                "r-baume-tip": "Voilà, votre baume est prêt à être utilisé !",
+                "r-masc-title": "👁️ Mascara renforçateur cils / sourcils",
+                "r-masc-option-label": "<strong>Pour un tube de mascara :</strong>",
+                "r-masc-ing1": "10 ml d'huile de ricin",
+                "ou": "<strong>Ou :</strong>",
+                "r-masc-ing2": "6 ml d'huile de ricin",
+                "r-masc-ing3": "2 ml d'huile d'avocat",
+                "r-masc-ing4": "2 ml d'huile de jojoba",
+                "materiel": "Matériel :",
+                "r-masc-mat1": "1 tube de mascara vide",
+                "r-masc-p1": "Remplissez le flacon avec l'huile de ricin, ou avec l'huile de ricin et les deux autres huiles.",
+                "r-masc-tip": "<strong>Rappel :</strong> l'hygiène est importante quand on fabrique ces soins maison. N'oubliez pas de désinfecter votre matériel avec de l'alcool à 70° et d'avoir les mains bien propres.",
                 "r-nut-title": "🥑 Masque nutrition",
                 "r-nut-ing1": "Un pot de fromage blanc (ou le reste de fromage blanc utilisé pour votre masque visage par exemple)",
                 "r-nut-ing2": "Huile végétale selon vos besoins capillaires (huile d'olive et d'avocat par exemple)",
@@ -1466,7 +1565,16 @@
                 "b-main-title": "🌸 Natural Beauty",
                 "b-nav-intro": "✨ Introduction",
                 "b-nav-recipes": "🧪 Beauty Recipes",
+                "b-nav-base": "📦 Basic Supplies",
                 "b-nav-tips": "💆‍♀️ Tips",
+                "b-base-title": "📦 Your Basic Supplies",
+                "b-base-subtitle": "Essential ingredients:",
+                "ing-coco-pure": "Coconut oil",
+                "ing-cire-pure": "Beeswax",
+                "ing-charbon-pure": "Activated charcoal",
+                "ing-ricin-pure": "Castor oil",
+                "b-base-note": "💡 <i>No need for more, especially if you're just starting out.</i>",
+                "b-base-tip": "⏳ A complete guide to help you set up a simple, quick natural beauty routine is coming soon.",
                 "cat-visage": "🪞 Category: Face",
                 "cat-cheveux": "💇‍♀️ Category: Hair",
                 "cat-corps": "🧴 Category: Body",
@@ -1534,6 +1642,27 @@
                 "r-hyd-p1": "Mix both ingredients together.",
                 "r-hyd-p2": "Apply with a brush onto clean skin.",
                 "r-hyd-tip": "<strong>Tip:</strong> Leave on for 10 to 15 minutes, then rinse off.",
+                "r-baume-title": "💄 Express Lip Balm",
+                "r-baume-ing1": "5 ml coconut oil",
+                "r-baume-ing2": "1 small teaspoon of beeswax",
+                "r-baume-mat1": "1 empty lip balm stick",
+                "r-baume-p1": "Put the coconut oil and beeswax in a heatproof bowl.",
+                "r-baume-p2": "Place the bowl in a double boiler (bain-marie).",
+                "r-baume-p3": "Let the wax melt completely.",
+                "r-baume-p4": "Remove from the heat.",
+                "r-baume-p5": "Immediately pour the mixture into the lip balm stick.",
+                "r-baume-tip": "There you go, your balm is ready to use!",
+                "r-masc-title": "👁️ Lash & Brow Strengthening Mascara",
+                "r-masc-option-label": "<strong>For one mascara tube:</strong>",
+                "r-masc-ing1": "10 ml castor oil",
+                "ou": "<strong>Or:</strong>",
+                "r-masc-ing2": "6 ml castor oil",
+                "r-masc-ing3": "2 ml avocado oil",
+                "r-masc-ing4": "2 ml jojoba oil",
+                "materiel": "Equipment:",
+                "r-masc-mat1": "1 empty mascara tube",
+                "r-masc-p1": "Fill the tube with castor oil, or with castor oil and the two other oils.",
+                "r-masc-tip": "<strong>Reminder:</strong> hygiene matters when making these homemade products. Don't forget to disinfect your equipment with 70° alcohol and to have clean hands.",
                 "r-nut-title": "🥑 Nourishing Hair Mask",
                 "r-nut-ing1": "A tub of fromage blanc (or whatever is left over from your face mask, for example)",
                 "r-nut-ing2": "Vegetable oil suited to your hair's needs (olive and avocado oil, for example)",
@@ -1673,3 +1802,4 @@
     </script>
 </body>
 </html>
+
